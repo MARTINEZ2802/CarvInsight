@@ -1,6 +1,5 @@
 package sac.CarvInsight.util;
 
-import sac.CarvInsight.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
