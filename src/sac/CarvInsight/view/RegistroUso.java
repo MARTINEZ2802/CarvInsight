@@ -29,6 +29,7 @@ public class RegistroUso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        desktopPane = new javax.swing.JDesktopPane();
         container1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -48,6 +49,8 @@ public class RegistroUso extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        desktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         container1.setBackground(new java.awt.Color(21, 100, 192));
         container1.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -196,7 +199,7 @@ public class RegistroUso extends javax.swing.JFrame {
 
         container1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 920, 500));
 
-        getContentPane().add(container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        desktopPane.add(container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         header.setBackground(new java.awt.Color(6, 42, 64));
         header.setPreferredSize(new java.awt.Dimension(1550, 140));
@@ -212,7 +215,9 @@ public class RegistroUso extends javax.swing.JFrame {
             .addGap(0, 140, Short.MAX_VALUE)
         );
 
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 140));
+        desktopPane.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 140));
+
+        getContentPane().add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 980));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,12 +226,12 @@ public class RegistroUso extends javax.swing.JFrame {
         // TODO add your handling code here:
         Assignment ventana = new Assignment();
         // Obtener el tamaño de la pantalla
-         this.add(ventana);
+         desktopPane.add(ventana);
         
-        int x = (this.getWidth()/2) - ventana.getWidth()/2;
-        int y = (this.getHeight()/2) - ventana.getHeight()/2;
+        int x = (desktopPane.getWidth()/2) - ventana.getWidth()/2;
+        int y = (desktopPane.getHeight()/2) - ventana.getHeight()/2;
         ventana.setLocation(x, y);
-        ventana.setVisible(true);
+        ventana.show();
     }//GEN-LAST:event_btn_AssignmentActionPerformed
 
     /**
@@ -268,6 +273,7 @@ public class RegistroUso extends javax.swing.JFrame {
     private javax.swing.JButton btn_Assignment;
     private javax.swing.JPanel container;
     private javax.swing.JPanel container1;
+    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
