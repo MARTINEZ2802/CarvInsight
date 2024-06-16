@@ -10,6 +10,7 @@ public class Reg_useMachine extends javax.swing.JFrame {
      */
     public Reg_useMachine() {
         initComponents();
+        
     }
 
     /**
