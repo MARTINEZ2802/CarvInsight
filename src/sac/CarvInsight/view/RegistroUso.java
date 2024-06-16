@@ -4,6 +4,9 @@
  */
 package sac.CarvInsight.view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author adali
@@ -40,7 +43,7 @@ public class RegistroUso extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btn_Assignment = new javax.swing.JButton();
         header = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,11 +114,11 @@ public class RegistroUso extends javax.swing.JFrame {
         jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jTextField10.setDisabledTextColor(new java.awt.Color(217, 217, 217));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jButton2.setText("Select Assignment");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_Assignment.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        btn_Assignment.setText("Select Assignment");
+        btn_Assignment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_AssignmentActionPerformed(evt);
             }
         });
 
@@ -131,7 +134,7 @@ public class RegistroUso extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
+                        .addComponent(btn_Assignment))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -163,7 +166,7 @@ public class RegistroUso extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(btn_Assignment))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -214,9 +217,17 @@ public class RegistroUso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_AssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AssignmentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Assignment ventana = new Assignment();
+        // Obtener el tamaño de la pantalla
+         this.add(ventana);
+        
+        int x = (this.getWidth()/2) - ventana.getWidth()/2;
+        int y = (this.getHeight()/2) - ventana.getHeight()/2;
+        ventana.setLocation(x, y);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btn_AssignmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,11 +265,11 @@ public class RegistroUso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Assignment;
     private javax.swing.JPanel container;
     private javax.swing.JPanel container1;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
