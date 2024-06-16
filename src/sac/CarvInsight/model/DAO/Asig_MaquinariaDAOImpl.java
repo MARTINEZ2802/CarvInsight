@@ -16,7 +16,7 @@ public class Asig_MaquinariaDAOImpl implements Asig_MaquinariaDAO{
     @Override
     public List<Asig_Maquinaria> findAllIncompleted() {
     List<Asig_Maquinaria> listAsig = new ArrayList<>();
-    String query = "Select id_asig, id_maq, id_prod, description from asig_machines";
+    String query = "Select id_asig, id_maq, id_prod, description from asig_machines WHERE state_asig=1";
     try {
         Connection conn = Conexion.getConnection();
         PreparedStatement stmt = conn.prepareStatement(query);
@@ -31,32 +31,33 @@ public class Asig_MaquinariaDAOImpl implements Asig_MaquinariaDAO{
         }
      
     } catch (Exception e) {
-    } 
+            System.out.println("Ha ocurrido un error: " + e.getMessage());
+        } 
     return listAsig;
     }
-
-    @Override
-    public int insert(Asig_Maquinaria AsMaq) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     //para actualizar estado luego de registrar uso
     @Override
-    public int updateState(Asig_Maquinaria asig) {
+    public int updateState(int asig) {
         int result = 0;
-        String Query = "UPDATE Asig_Machines SET state_asig=? where id_asig=?";
+        String Query = "UPDATE Asig_Machines SET state_asig=2 where id_asig=?";
         try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(Query);
-            stmt.setInt(1, asig.getState());
-            stmt.setInt(2, asig.getId_asig());
+            stmt.setInt(1, asig);
             result = stmt.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Ocurrio un error" + e.getMessage());
+            System.out.println("Ha ocurrido un error: " + e.getMessage());
         }
         return result;
     }
     
     
-    
+    /*
+    @Override
+    public int insert(Asig_Maquinaria AsMaq) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    */
 }

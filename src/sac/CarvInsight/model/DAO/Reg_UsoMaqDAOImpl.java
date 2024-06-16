@@ -6,7 +6,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import sac.CarvInsight.util.Conexion;
-import sac.CarvInsight.model.Asig_Maquinaria;
+import sac.CarvInsight.model.OEEGraphic;
 
 import sac.CarvInsight.model.Reg_UsoMaq; 
 
@@ -15,7 +15,9 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
     @Override
     public int insert(Reg_UsoMaq RgUso) {
     int result=0;
-    String sql= "INSERTO INTO Reg_using (id_asig, date_use, time_work, quantity, error, availability, performance, quality, oee)";
+    String sql= """
+                INSERTO INTO Reg_using (id_asig, date_use, time_work, quantity, error)
+                VALUES (?,?,?,?,?)""";
     try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -24,56 +26,134 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
             stmt.setFloat(3, RgUso.getTimeWork());
             stmt.setInt(4, RgUso.getQuantity());
             stmt.setFloat(5, RgUso.getError());
-            stmt.setFloat(6, RgUso.getAvailPC());
-            stmt.setFloat(7, RgUso.getQuantPC());
-            stmt.setFloat(8, RgUso.getOEE());
             stmt.setQueryTimeout(result);
             result = stmt.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("Ocurrio un error" + e.getMessage());
+        } 
+    catch (Exception e) {
+           
+            System.out.println("Ha ocurrido un error" + e.getMessage());
         }
         return result;
 
     }
 
     @Override
-    public Reg_UsoMaq findToDay(int id_maq, String Date) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Reg_UsoMaq> findToWeek(int id_maq, String Date) {
-    List<Reg_UsoMaq> LisRgUsed = new ArrayList<>();
-    String query = "SELECT \n" +
-            "    ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, \n" +
-            "    ru.availability, ru.performance, ru.quality, ru.oee, m.perfor_maq, am.time_estimate\n" +
-            "FROM \n" +
-            "    reg_using ru\n" +
-            "INNER JOIN \n" +
-            "    asig_machines am ON ru.id_asig = am.id_asig\n" +
-            "INNER JOIN \n" +
-            "    machines m ON am.id_maq = m.id_maq\n" +
-            "WHERE \n" +
-            "	 ru.date_use =? AND m.id_maq=?;";
+    public OEEGraphic findToDay(int id_maq, String Date) {
+    String query = """
+                   SELECT 
+                       ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, 
+                       m.perfor_maq, am.time_estimate
+                   FROM 
+                       reg_using ru
+                   INNER JOIN 
+                       asig_machines am ON ru.id_asig = am.id_asig
+                   INNER JOIN 
+                       machines m ON am.id_maq = m.id_maq
+                   WHERE 
+                   \t ru.date_use =? AND m.id_maq=?;""";
+    
+    OEEGraphic OeeG = new OEEGraphic();
         try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, id_maq);
             stmt.setString(2, Date);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {       
-                
-                Reg_UsoMaq rgUsedLocal = new Reg_UsoMaq();
+            if (rs.next()) {  
+                OeeG.setId_asig(rs.getInt("id_asig"));
+                OeeG.setDate(rs.getString("date_use"));
+                OeeG.setTimeWork(rs.getFloat("time_work"));
+                OeeG.setQuantity(rs.getInt("quantity"));
+                OeeG.setError(rs.getInt("error"));
+                OeeG.setPerfr_maq(rs.getInt("perfor_maq"));
+                OeeG.setPlanned_time(rs.getFloat("time_estimate"));
             }
-            
         } catch (Exception e) {
+            System.out.println("Ocurrio un error: " + e.getMessage());
         }
-      return LisRgUsed;  
+      return OeeG;     
     }
 
     @Override
-    public List<Reg_UsoMaq> findToProduction(int id_maq, int prod) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<OEEGraphic> findToWeek(int id_maq, String Date) {
+    String DateLimit = "";
+    List<OEEGraphic> LisOEE = new ArrayList<>();
+    String query = """
+                   SELECT 
+                       ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, 
+                       m.perfor_maq, am.time_estimate
+                   FROM 
+                       reg_using ru
+                   INNER JOIN 
+                       asig_machines am ON ru.id_asig = am.id_asig
+                   INNER JOIN 
+                       machines m ON am.id_maq = m.id_maq
+                   WHERE 
+                   \t ru.date_use BETWEEN =? AND =? AND m.id_maq=?;""";
+        try {
+            Connection conn = Conexion.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, id_maq);
+            stmt.setString(2, Date);
+            stmt.setString(3, DateLimit);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {  
+                OEEGraphic OeeG = new OEEGraphic();
+                OeeG.setId_asig(rs.getInt("id_asig"));
+                OeeG.setDate(rs.getString("date_use"));
+                OeeG.setTimeWork(rs.getFloat("time_work"));
+                OeeG.setQuantity(rs.getInt("quantity"));
+                OeeG.setError(rs.getInt("error"));
+                OeeG.setPerfr_maq(rs.getInt("perfor_maq"));
+                OeeG.setPlanned_time(rs.getFloat("time_estimate"));
+                LisOEE.add(OeeG);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Ocurrio un error: " + e.getMessage());
+        }
+      return LisOEE;  
+    }
+
+    @Override
+    public List<OEEGraphic> findToProduction(int id_maq, int prod) {
+    List<OEEGraphic> LisOEE = new ArrayList<>();
+    String query = """
+                   SELECT 
+                       ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, 
+                       m.perfor_maq, am.time_estimate
+                   FROM 
+                       reg_using ru
+                   INNER JOIN 
+                       asig_machines am ON ru.id_asig = am.id_asig
+                   INNER JOIN 
+                       machines m ON am.id_maq = m.id_maq
+                   INNER JOIN 
+                       production p ON am.id_prod = p.id_prod
+                   WHERE 
+                   \t  m.id_maq=? AND am.id_prod=? ;""";
+        try {
+            Connection conn = Conexion.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, id_maq);
+            stmt.setInt(2, prod);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {  
+                OEEGraphic OeeG = new OEEGraphic();
+                OeeG.setId_asig(rs.getInt("id_asig"));
+                OeeG.setDate(rs.getString("date_use"));
+                OeeG.setTimeWork(rs.getFloat("time_work"));
+                OeeG.setQuantity(rs.getInt("quantity"));
+                OeeG.setError(rs.getInt("error"));
+                OeeG.setPerfr_maq(rs.getInt("perfor_maq"));
+                OeeG.setPlanned_time(rs.getFloat("time_estimate"));
+                LisOEE.add(OeeG);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Ocurrio un error: " + e.getMessage());
+        }
+      return LisOEE;  
     }
   
 }

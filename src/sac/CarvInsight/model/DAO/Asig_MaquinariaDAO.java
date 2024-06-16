@@ -6,6 +6,7 @@ import sac.CarvInsight.model.Asig_Maquinaria;
 
 public interface Asig_MaquinariaDAO {
     public List<Asig_Maquinaria> findAllIncompleted();
-    public int insert(Asig_Maquinaria AsMaq);    
-    public int updateState (Asig_Maquinaria AsMaq);
+    
+    //public int insert(Asig_Maquinaria AsMaq);    
+    public int updateState (int id_Asig);
 }
