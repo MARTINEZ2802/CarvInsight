@@ -225,6 +225,7 @@ public class RegistroUso extends javax.swing.JFrame {
     private void btn_AssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AssignmentActionPerformed
         // TODO add your handling code here:
         Assignment ventana = new Assignment();
+        
         // Obtener el tamaño de la pantalla
          desktopPane.add(ventana);
         
