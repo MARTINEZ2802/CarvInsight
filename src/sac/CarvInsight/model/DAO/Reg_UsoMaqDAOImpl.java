@@ -7,7 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import sac.CarvInsight.util.Conexion;
 import sac.CarvInsight.model.Asig_Maquinaria;
-import sac.CarvInsight.model.Reg_UsoMaq;
+
+import sac.CarvInsight.model.Reg_UsoMaq; 
 
 public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
 
