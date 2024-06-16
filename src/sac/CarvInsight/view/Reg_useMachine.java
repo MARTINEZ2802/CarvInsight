@@ -42,7 +42,6 @@ public class Reg_useMachine extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(200, 207, 216));
         setMaximumSize(new java.awt.Dimension(10000, 9000));
-        setMinimumSize(new java.awt.Dimension(0, 0));
         setPreferredSize(new java.awt.Dimension(1550, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
