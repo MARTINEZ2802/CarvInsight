@@ -4,31 +4,35 @@ package sac.CarvInsight.model;
 
 public class Asig_Maquinaria {
     
-    private int id_maquinaria;
+    private int id_asig;
     private int state;
     private float time_estimade;
     private String date_plann;
     private int id_prod;
     private int id_maq;
+    private String description;
 
     public Asig_Maquinaria() {
     }
 
-    public Asig_Maquinaria(int id_maquinaria, int state, float time_estimade, String date_plann, int id_prod, int id_maq) {
-        this.id_maquinaria = id_maquinaria;
+    public Asig_Maquinaria(int id_asig, int state, float time_estimade, String date_plann, int id_prod, int id_maq, String description) {
+        this.id_asig = id_asig;
         this.state = state;
         this.time_estimade = time_estimade;
         this.date_plann = date_plann;
         this.id_prod = id_prod;
         this.id_maq = id_maq;
+        this.description = description;
     }
 
-    public int getId_maquinaria() {
-        return id_maquinaria;
+
+
+    public int getId_asig() {
+        return id_asig;
     }
 
-    public void setId_maquinaria(int id_maquinaria) {
-        this.id_maquinaria = id_maquinaria;
+    public void setId_asig(int id_asig) {
+        this.id_asig = id_asig;
     }
 
     public int getState() {
@@ -70,7 +74,15 @@ public class Asig_Maquinaria {
     public void setId_maq(int id_maq) {
         this.id_maq = id_maq;
     }
-    
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     
             
     
