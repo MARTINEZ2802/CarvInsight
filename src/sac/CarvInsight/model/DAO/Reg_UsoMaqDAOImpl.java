@@ -60,7 +60,8 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
             stmt.setInt(1, id_maq);
             stmt.setString(2, Date);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {       
+                
                 Reg_UsoMaq rgUsedLocal = new Reg_UsoMaq();
             }
             
