@@ -1,7 +1,6 @@
 
 package sac.CarvInsight.view;
 
-import java.awt.BorderLayout;
 
 
 public class Reg_useMachine extends javax.swing.JFrame {
