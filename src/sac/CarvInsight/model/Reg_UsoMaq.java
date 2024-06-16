@@ -1,32 +1,31 @@
 
-package sac.CarviInsight.model;
+package sac.CarvInsight.model;
 
 public class Reg_UsoMaq {
     
     
     private int id_asig;
-    private String Date;
+    private String date;
     private float timeWork;
     private int quantity;
     private int error;
-    
-    private float AvailPC;
-    private float PerfoPC;
-    private float QuantPC;
+    private float availPC;
+    private float perfoPC;
+    private float qualiPC;
     private float OEE;
 
     public Reg_UsoMaq() {
     }
 
-    public Reg_UsoMaq(int id_asig, String Date, float timeWork, int quantity, int error, float AvailPC, float PerfoPC, float QuantPC, float OEE) {
+    public Reg_UsoMaq(int id_asig, String date, float timeWork, int quantity, int error, float AvailPC, float PerfoPC, float QuantPC, float OEE) {
         this.id_asig = id_asig;
-        this.Date = Date;
+        this.date = date;
         this.timeWork = timeWork;
         this.quantity = quantity;
         this.error = error;
-        this.AvailPC = AvailPC;
-        this.PerfoPC = PerfoPC;
-        this.QuantPC = QuantPC;
+        this.availPC = AvailPC;
+        this.perfoPC = PerfoPC;
+        this.qualiPC = QuantPC;
         this.OEE = OEE;
     }
 
@@ -39,11 +38,11 @@ public class Reg_UsoMaq {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String Date) {
-        this.Date = Date;
+        this.date = Date;
     }
 
     public float getTimeWork() {
@@ -71,27 +70,27 @@ public class Reg_UsoMaq {
     }
 
     public float getAvailPC() {
-        return AvailPC;
+        return availPC;
     }
 
     public void setAvailPC(float AvailPC) {
-        this.AvailPC = AvailPC;
+        this.availPC = AvailPC;
     }
 
     public float getPerfoPC() {
-        return PerfoPC;
+        return perfoPC;
     }
 
     public void setPerfoPC(float PerfoPC) {
-        this.PerfoPC = PerfoPC;
+        this.perfoPC = PerfoPC;
     }
 
     public float getQuantPC() {
-        return QuantPC;
+        return qualiPC;
     }
 
     public void setQuantPC(float QuantPC) {
-        this.QuantPC = QuantPC;
+        this.qualiPC = QuantPC;
     }
 
     public float getOEE() {

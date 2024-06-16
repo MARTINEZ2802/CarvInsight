@@ -1,4 +1,4 @@
-package sac.CarviInsight.model;
+package sac.CarvInsight.model;
 
 public class Maq {
     
