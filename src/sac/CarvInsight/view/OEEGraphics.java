@@ -1,16 +1,23 @@
 package sac.CarvInsight.view;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 
 public class OEEGraphics extends javax.swing.JFrame {
 
     public OEEGraphics() {
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height;
         initComponents();
         this.setTitle("CARVINSIGHT");
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
         Image ico = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/logo.png"));
         setIconImage(ico);
+        ancho.setText(screenWidth+"");
+        altura.setText(screenHeight+"");
         
         
         
@@ -25,6 +32,8 @@ public class OEEGraphics extends javax.swing.JFrame {
         btn_LogOut = new javax.swing.JButton();
         NavPanel = new javax.swing.JPanel();
         NavPanel1 = new javax.swing.JPanel();
+        altura = new javax.swing.JTextField();
+        ancho = new javax.swing.JTextField();
         btn_1w = new javax.swing.JButton();
         btn_1w1 = new javax.swing.JButton();
 
@@ -62,19 +71,22 @@ public class OEEGraphics extends javax.swing.JFrame {
         HeadPanelLayout.setHorizontalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeadPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 682, Short.MAX_VALUE)
                 .addComponent(btn_LogOut)
                 .addGap(93, 93, 93))
         );
         HeadPanelLayout.setVerticalGroup(
             HeadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeadPanelLayout.createSequentialGroup()
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(btn_LogOut)
                 .addGap(26, 26, 26))
+            .addGroup(HeadPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(HeadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2207, -1));
@@ -86,30 +98,50 @@ public class OEEGraphics extends javax.swing.JFrame {
         NavPanel.setLayout(NavPanelLayout);
         NavPanelLayout.setHorizontalGroup(
             NavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 350, Short.MAX_VALUE)
         );
         NavPanelLayout.setVerticalGroup(
             NavPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
 
-        getContentPane().add(NavPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 350, 1100));
+        getContentPane().add(NavPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 350, 1030));
 
         NavPanel1.setBackground(new java.awt.Color(204, 0, 51));
         NavPanel1.setForeground(new java.awt.Color(0, 0, 255));
+
+        altura.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        ancho.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout NavPanel1Layout = new javax.swing.GroupLayout(NavPanel1);
         NavPanel1.setLayout(NavPanel1Layout);
         NavPanel1Layout.setHorizontalGroup(
             NavPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1760, Short.MAX_VALUE)
+            .addGroup(NavPanel1Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(altura, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1257, Short.MAX_VALUE))
+            .addGroup(NavPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(NavPanel1Layout.createSequentialGroup()
+                    .addGap(185, 185, 185)
+                    .addComponent(ancho, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1256, Short.MAX_VALUE)))
         );
         NavPanel1Layout.setVerticalGroup(
             NavPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
+            .addGroup(NavPanel1Layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(altura, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(659, Short.MAX_VALUE))
+            .addGroup(NavPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(NavPanel1Layout.createSequentialGroup()
+                    .addGap(82, 82, 82)
+                    .addComponent(ancho, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(759, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(NavPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 250, 1760, 980));
+        getContentPane().add(NavPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 250, 1760, 920));
 
         btn_1w.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1w.png"))); // NOI18N
         btn_1w.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,6 +262,8 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel HeadPanel;
     private javax.swing.JPanel NavPanel;
     private javax.swing.JPanel NavPanel1;
+    private javax.swing.JTextField altura;
+    private javax.swing.JTextField ancho;
     private javax.swing.JButton btn_1w;
     private javax.swing.JButton btn_1w1;
     private javax.swing.JButton btn_LogOut;
