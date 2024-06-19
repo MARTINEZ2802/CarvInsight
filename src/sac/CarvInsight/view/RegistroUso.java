@@ -46,12 +46,14 @@ public class RegistroUso extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        desktopPane.setBackground(new java.awt.Color(204, 204, 255));
+        desktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         container1.setBackground(new java.awt.Color(21, 100, 192));
         container1.setMinimumSize(new java.awt.Dimension(0, 0));
         container1.setPreferredSize(new java.awt.Dimension(1400, 560));
+        container1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(33, 36, 41));
         jPanel3.setPreferredSize(new java.awt.Dimension(910, 500));
@@ -193,20 +195,9 @@ public class RegistroUso extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout container1Layout = new javax.swing.GroupLayout(container1);
-        container1.setLayout(container1Layout);
-        container1Layout.setHorizontalGroup(
-            container1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(container1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        container1Layout.setVerticalGroup(
-            container1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(container1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        container1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 920, 500));
+
+        desktopPane.add(container1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         header.setBackground(new java.awt.Color(6, 42, 64));
         header.setPreferredSize(new java.awt.Dimension(1550, 140));
@@ -222,36 +213,9 @@ public class RegistroUso extends javax.swing.JFrame {
             .addGap(0, 140, Short.MAX_VALUE)
         );
 
-        desktopPane.setLayer(container1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(header, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 140));
 
-        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
-        desktopPane.setLayout(desktopPaneLayout);
-        desktopPaneLayout.setHorizontalGroup(
-            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(desktopPaneLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(container1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        desktopPaneLayout.setVerticalGroup(
-            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktopPaneLayout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(container1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 980));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -260,7 +224,7 @@ public class RegistroUso extends javax.swing.JFrame {
         // TODO add your handling code here:
         Assignment ventana = new Assignment();
         
-        // CENTRAR clase Assignment
+        // Obtener el tamaño de la pantalla
          desktopPane.add(ventana);
         
         int x = (desktopPane.getWidth()/2) - ventana.getWidth()/2;
@@ -306,18 +270,33 @@ public class RegistroUso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Assignment;
+    private javax.swing.JPanel container;
     private javax.swing.JPanel container1;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
