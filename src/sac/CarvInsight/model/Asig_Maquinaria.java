@@ -83,7 +83,10 @@ public class Asig_Maquinaria {
         this.description = description;
     }
 
-    
+    public Object[] getDatosForTable(){
+        Object[] datos = {id_asig,id_maq,id_prod,description};
+        return datos;
+    }
             
     
 }
