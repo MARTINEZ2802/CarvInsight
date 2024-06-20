@@ -18,7 +18,7 @@ public class Conexion {
 
     private Conexion() {
         usuario = "root";
-        password = "123456";
+        password = "12345678";
         basedatos = "oee_carvimsa";
         URL = "jdbc:mysql://localhost:3306/oee_carvimsa?zeroDateTimeBehavior=CONVERT_TO_NULL";
         driver = "com.mysql.cj.jdbc.Driver";
