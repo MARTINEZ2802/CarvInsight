@@ -42,9 +42,9 @@ public class OEEGraphics extends javax.swing.JFrame {
         Qua = new javax.swing.JPanel();
         Header = new javax.swing.JLabel();
         Nav = new javax.swing.JLabel();
-        Body = new javax.swing.JLabel();
         fNav = new javax.swing.JPanel();
         fBody = new javax.swing.JPanel();
+        Body = new javax.swing.JLabel();
         Machin1 = new javax.swing.JPanel();
         n2 = new javax.swing.JPanel();
         n3 = new javax.swing.JPanel();
@@ -59,7 +59,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         n12 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1400, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -249,9 +248,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         Nav.setForeground(new java.awt.Color(29, 85, 121));
         getContentPane().add(Nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 300, 700));
 
-        Body.setBackground(new java.awt.Color(232, 236, 241));
-        getContentPane().add(Body, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 1100, 700));
-
         fNav.setBackground(new java.awt.Color(29, 85, 121));
 
         javax.swing.GroupLayout fNavLayout = new javax.swing.GroupLayout(fNav);
@@ -269,15 +265,23 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         fBody.setBackground(new java.awt.Color(204, 204, 204));
 
+        Body.setBackground(new java.awt.Color(232, 236, 241));
+
         javax.swing.GroupLayout fBodyLayout = new javax.swing.GroupLayout(fBody);
         fBody.setLayout(fBodyLayout);
         fBodyLayout.setHorizontalGroup(
             fBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Body, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         fBodyLayout.setVerticalGroup(
             fBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Body, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(fBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 1100, 700));
