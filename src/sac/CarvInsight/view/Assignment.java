@@ -115,6 +115,18 @@ public class Assignment extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String new_id= id_asignment+"";
         RegistroUso.txtcode_asig.setText(new_id);
+        
+        //SEND IMAGE TO JLABEL
+         Imgs Llenar = new Imgs();
+         
+         Asig_MaquinariaDAO dao = new Asig_MaquinariaDAOImpl();
+            String tipo_mac = dao.findTipoMac(id_asignment);
+         switch (tipo_mac) {
+                    case "Sliter" -> Llenar.Img2Label(RegistroUso.img_machine, "slitter");
+                    case "Maquina tubera" -> Llenar.Img2Label(RegistroUso.img_machine, "roll");
+                    case "Horno" -> Llenar.Img2Label(RegistroUso.img_machine, "furance");
+                    default -> RegistroUso.img_machine.setIcon(null);
+                }
         this.dispose();
         
     }//GEN-LAST:event_btn_AssignmentActionPerformed
@@ -128,7 +140,7 @@ public class Assignment extends javax.swing.JInternalFrame {
     private void cargarIcons(){
         llenar.Img2Label(header, "NewHead");
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Assignment;
     private javax.swing.JLabel header;

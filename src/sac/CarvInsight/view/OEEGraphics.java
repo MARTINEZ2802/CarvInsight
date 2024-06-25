@@ -16,6 +16,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_Logout = new javax.swing.JButton();
         ww = new javax.swing.JButton();
         dd = new javax.swing.JButton();
         tub1 = new javax.swing.JButton();
@@ -61,6 +62,21 @@ public class OEEGraphics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_LogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_LogoutMouseExited(evt);
+            }
+        });
+        btn_Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 260, 60));
 
         ww.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1W.png"))); // NOI18N
         ww.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -509,6 +525,21 @@ public class OEEGraphics extends javax.swing.JFrame {
         Llenar.Img2Btn(ww, "1W");
     }//GEN-LAST:event_wwMouseExited
 
+    private void btn_LogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMouseEntered
+        Llenar.Img2Btn(btn_Logout, "btnLogOutHover");
+    }//GEN-LAST:event_btn_LogoutMouseEntered
+
+    private void btn_LogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMouseExited
+        Llenar.Img2Btn(btn_Logout, "btnLogOut");
+    }//GEN-LAST:event_btn_LogoutMouseExited
+
+    private void btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogoutActionPerformed
+        // TODO add your handling code here:
+        Login log = new Login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_LogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -531,7 +562,7 @@ public class OEEGraphics extends javax.swing.JFrame {
         Llenar.Img2Label(roll, "roll");
         Llenar.Img2Label(slitter, "slitter");
         Llenar.Img2Label(furance, "furance");
-        
+        Llenar.Img2Btn(btn_Logout, "btnLogOut");
         //bto
          Llenar.Img2Btn(tub1, "logo");
     }
@@ -553,6 +584,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel Oee;
     private javax.swing.JPanel Per;
     private javax.swing.JPanel Qua;
+    private javax.swing.JButton btn_Logout;
     private javax.swing.JButton dd;
     private javax.swing.JPanel fBody;
     private javax.swing.JPanel fNav;

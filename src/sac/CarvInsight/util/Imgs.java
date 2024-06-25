@@ -7,6 +7,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JToggleButton;
 
 public class Imgs {
     
@@ -22,4 +23,9 @@ public class Imgs {
         namebtn.setIcon(icon); //
     }
     
+    public void Img2TBtn (JToggleButton namebtn, String Nombre){
+        ImageIcon image = new ImageIcon("src/img/"+Nombre+".png");
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(namebtn.getWidth(),namebtn.getHeight(),Image.SCALE_DEFAULT));
+        namebtn.setIcon(icon); //
+    }
 }

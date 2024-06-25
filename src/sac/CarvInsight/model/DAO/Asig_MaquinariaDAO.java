@@ -9,4 +9,5 @@ public interface Asig_MaquinariaDAO {
     
     //public int insert(Asig_Maquinaria AsMaq);    
     public int updateState (int id_Asig);
+    public String findTipoMac(int id_Asig);
 }

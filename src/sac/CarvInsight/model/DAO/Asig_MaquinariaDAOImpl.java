@@ -60,4 +60,23 @@ public class Asig_MaquinariaDAOImpl implements Asig_MaquinariaDAO{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     */
+
+    @Override
+    public String findTipoMac(int id_Asig) {
+        String name_mac="";
+        String Query = "SELECT m.tipo_maq FROM  reg_using ru INNER JOIN asig_machines am ON ru.id_asig = am.id_asig "
+                + "INNER JOIN machines m ON am.id_maq = m.id_maq WHERE am.id_asig = ?";
+        try {
+            Connection conn = Conexion.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(Query);
+            stmt.setInt(1, id_Asig);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                name_mac = rs.getString(1);
+            }
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error: " + e.getMessage());
+        }
+        return name_mac;
+    }
 }
