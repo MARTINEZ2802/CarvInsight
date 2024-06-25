@@ -20,7 +20,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    private boolean isPasswordVisible;
+   
     Imgs llenar = new Imgs();
     public Login() {
         initComponents();

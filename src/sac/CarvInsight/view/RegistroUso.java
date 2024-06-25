@@ -78,7 +78,7 @@ public class RegistroUso extends javax.swing.JFrame {
         Image image = icon.getImage();
         desktopPane = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
-                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+                g.drawImage(image, 0, 0, getWidth(), getHeight(),this);
             }
         };
         btn_Logout = new javax.swing.JButton();
