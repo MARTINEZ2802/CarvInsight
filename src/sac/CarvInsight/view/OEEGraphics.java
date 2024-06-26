@@ -26,7 +26,9 @@ public class OEEGraphics extends javax.swing.JFrame {
         tub6 = new javax.swing.JButton();
         sliter1 = new javax.swing.JButton();
         sliter2 = new javax.swing.JButton();
+        sliter3 = new javax.swing.JButton();
         horno1 = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
         roll = new javax.swing.JLabel();
         slitter = new javax.swing.JLabel();
         furance = new javax.swing.JLabel();
@@ -59,7 +61,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         n12 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1400, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -85,40 +86,144 @@ public class OEEGraphics extends javax.swing.JFrame {
         });
         getContentPane().add(dd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 50, 50));
 
-        tub1.setText("jButton1");
+        tub1.setBorder(null);
+        tub1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub1MouseExited(evt);
+            }
+        });
+        tub1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub1ActionPerformed(evt);
+            }
+        });
+        tub1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tub1KeyPressed(evt);
+            }
+        });
         getContentPane().add(tub1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 202, 300, 34));
 
-        tub2.setText("jButton1");
+        tub2.setBorder(null);
+        tub2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub2MouseExited(evt);
+            }
+        });
         getContentPane().add(tub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 236, 300, 34));
 
-        tub3.setText("jButton1");
+        tub3.setBorder(null);
+        tub3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub3MouseExited(evt);
+            }
+        });
         getContentPane().add(tub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 300, 34));
 
-        tub4.setText("jButton1");
+        tub4.setBorder(null);
+        tub4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub4MouseExited(evt);
+            }
+        });
         getContentPane().add(tub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 304, 300, 34));
 
-        tub5.setText("jButton1");
+        tub5.setBorder(null);
+        tub5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub5MouseExited(evt);
+            }
+        });
         getContentPane().add(tub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 338, 300, 34));
 
-        tub6.setText("jButton1");
+        tub6.setBorder(null);
+        tub6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tub6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tub6MouseExited(evt);
+            }
+        });
         getContentPane().add(tub6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 372, 300, 34));
 
-        sliter1.setText("jButton1");
+        sliter1.setBorder(null);
+        sliter1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sliter1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sliter1MouseExited(evt);
+            }
+        });
         getContentPane().add(sliter1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 493, 300, 34));
 
-        sliter2.setText("jButton1");
+        sliter2.setBorder(null);
+        sliter2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sliter2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sliter2MouseExited(evt);
+            }
+        });
         getContentPane().add(sliter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 527, 300, 34));
 
-        horno1.setText("jButton1");
-        getContentPane().add(horno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 654, 300, 34));
+        sliter3.setBorder(null);
+        sliter3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sliter3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sliter3MouseExited(evt);
+            }
+        });
+        getContentPane().add(sliter3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 561, 300, 34));
+
+        horno1.setBorder(null);
+        horno1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                horno1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                horno1MouseExited(evt);
+            }
+        });
+        getContentPane().add(horno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 688, 300, 34));
+
+        Logout.setBorder(null);
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LogoutMouseExited(evt);
+            }
+        });
+        getContentPane().add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 200, 50));
         getContentPane().add(roll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 40, 40));
         getContentPane().add(slitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 40, 40));
-        getContentPane().add(furance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 40, 40));
+        getContentPane().add(furance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 40, 40));
 
         MACHINE3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MACHINE3.setForeground(new java.awt.Color(255, 255, 255));
         MACHINE3.setText("Furnances machines");
-        getContentPane().add(MACHINE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 579, 180, 40));
+        getContentPane().add(MACHINE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 613, 180, 40));
 
         MACHINE2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         MACHINE2.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,7 +284,7 @@ public class OEEGraphics extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 633, 270, 3));
+        getContentPane().add(Line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 677, 270, 3));
 
         Oee.setBackground(new java.awt.Color(33, 36, 41));
 
@@ -249,7 +354,7 @@ public class OEEGraphics extends javax.swing.JFrame {
         Nav.setForeground(new java.awt.Color(29, 85, 121));
         getContentPane().add(Nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 300, 700));
 
-        Body.setBackground(new java.awt.Color(232, 236, 241));
+        Body.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(Body, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 1100, 700));
 
         fNav.setBackground(new java.awt.Color(29, 85, 121));
@@ -505,6 +610,103 @@ public class OEEGraphics extends javax.swing.JFrame {
         Llenar.Img2Btn(ww, "1W");
     }//GEN-LAST:event_wwMouseExited
 
+    private void tub1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub1ActionPerformed
+
+    }//GEN-LAST:event_tub1ActionPerformed
+
+    private void tub1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tub1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tub1KeyPressed
+
+    private void tub1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub1MouseEntered
+        Llenar.Img2Btn(tub1, "maq1Hover");
+    }//GEN-LAST:event_tub1MouseEntered
+
+    private void tub1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub1MouseExited
+        Llenar.Img2Btn(tub1, "maq1");
+    }//GEN-LAST:event_tub1MouseExited
+
+    private void tub2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub2MouseEntered
+        Llenar.Img2Btn(tub2, "maq2Hover");
+    }//GEN-LAST:event_tub2MouseEntered
+
+    private void tub2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub2MouseExited
+        Llenar.Img2Btn(tub2, "maq2");
+    }//GEN-LAST:event_tub2MouseExited
+
+    private void tub3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub3MouseEntered
+         Llenar.Img2Btn(tub3, "maq3Hover");
+    }//GEN-LAST:event_tub3MouseEntered
+
+    private void tub3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub3MouseExited
+        Llenar.Img2Btn(tub3, "maq3");
+    }//GEN-LAST:event_tub3MouseExited
+
+    private void tub4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub4MouseEntered
+        Llenar.Img2Btn(tub4, "maq4Hover");
+    }//GEN-LAST:event_tub4MouseEntered
+
+    private void tub4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub4MouseExited
+        Llenar.Img2Btn(tub4, "maq4");
+    }//GEN-LAST:event_tub4MouseExited
+
+    private void tub5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub5MouseEntered
+       Llenar.Img2Btn(tub5, "maq5Hover");
+    }//GEN-LAST:event_tub5MouseEntered
+
+    private void tub5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub5MouseExited
+        Llenar.Img2Btn(tub5, "maq5");
+    }//GEN-LAST:event_tub5MouseExited
+
+    private void tub6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub6MouseEntered
+        Llenar.Img2Btn(tub6, "maq6Hover");
+    }//GEN-LAST:event_tub6MouseEntered
+
+    private void tub6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub6MouseExited
+        Llenar.Img2Btn(tub6, "maq6");
+    }//GEN-LAST:event_tub6MouseExited
+
+    private void sliter1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter1MouseEntered
+        Llenar.Img2Btn(sliter1, "maq7Hover");
+    }//GEN-LAST:event_sliter1MouseEntered
+
+    private void sliter1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter1MouseExited
+        Llenar.Img2Btn(sliter1, "maq7");
+    }//GEN-LAST:event_sliter1MouseExited
+
+    private void sliter3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter3MouseEntered
+       Llenar.Img2Btn(sliter3, "maq9Hover");
+    }//GEN-LAST:event_sliter3MouseEntered
+
+    private void sliter3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter3MouseExited
+        Llenar.Img2Btn(sliter3, "maq9");
+    }//GEN-LAST:event_sliter3MouseExited
+
+    private void sliter2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter2MouseEntered
+        Llenar.Img2Btn(sliter2, "maq8Hover");
+    }//GEN-LAST:event_sliter2MouseEntered
+
+    private void sliter2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter2MouseExited
+        Llenar.Img2Btn(sliter2, "maq8");
+    }//GEN-LAST:event_sliter2MouseExited
+
+    private void horno1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horno1MouseEntered
+        Llenar.Img2Btn(horno1, "maq10Hover");
+    }//GEN-LAST:event_horno1MouseEntered
+
+    private void horno1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horno1MouseExited
+        Llenar.Img2Btn(horno1, "maq10");
+    }//GEN-LAST:event_horno1MouseExited
+
+    private void LogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseEntered
+        Llenar.Img2Btn(Logout, "LogOutHover");
+    }//GEN-LAST:event_LogoutMouseEntered
+
+    private void LogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseExited
+        Llenar.Img2Btn(Logout, "LogOut");
+    }//GEN-LAST:event_LogoutMouseExited
+
+    
     /**
      * @param args the command line arguments
      */
@@ -527,9 +729,19 @@ public class OEEGraphics extends javax.swing.JFrame {
         Llenar.Img2Label(roll, "roll");
         Llenar.Img2Label(slitter, "slitter");
         Llenar.Img2Label(furance, "furance");
+        Llenar.Img2Btn(Logout, "LogOut");
         
         //bto
-         Llenar.Img2Btn(tub1, "logo");
+         Llenar.Img2Btn(tub1, "maq1");
+         Llenar.Img2Btn(tub2, "maq2");
+         Llenar.Img2Btn(tub3, "maq3");
+         Llenar.Img2Btn(tub4, "maq4");
+         Llenar.Img2Btn(tub5, "maq5");
+         Llenar.Img2Btn(tub6, "maq6");
+         Llenar.Img2Btn(sliter1, "maq7");
+         Llenar.Img2Btn(sliter2, "maq8");
+         Llenar.Img2Btn(sliter3, "maq9");
+         Llenar.Img2Btn(horno1, "maq10");
     }
     
     
@@ -541,6 +753,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel Line;
     private javax.swing.JPanel Line1;
     private javax.swing.JPanel Line2;
+    private javax.swing.JButton Logout;
     private javax.swing.JLabel MACHINE1;
     private javax.swing.JLabel MACHINE2;
     private javax.swing.JLabel MACHINE3;
@@ -568,6 +781,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JLabel roll;
     private javax.swing.JButton sliter1;
     private javax.swing.JButton sliter2;
+    private javax.swing.JButton sliter3;
     private javax.swing.JLabel slitter;
     private javax.swing.JButton tub1;
     private javax.swing.JButton tub2;
