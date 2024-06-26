@@ -16,7 +16,6 @@ public class OEEGraphics extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_Logout = new javax.swing.JButton();
         ww = new javax.swing.JButton();
         dd = new javax.swing.JButton();
         tub1 = new javax.swing.JButton();
@@ -66,22 +65,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_LogoutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_LogoutMouseExited(evt);
-            }
-        });
-        btn_Logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_LogoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 260, 60));
-
-        ww.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1W.png"))); // NOI18N
         ww.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 wwMouseEntered(evt);
@@ -92,7 +75,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         });
         getContentPane().add(ww, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 50, 50));
 
-        dd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1D.png"))); // NOI18N
         dd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ddMouseEntered(evt);
@@ -788,7 +770,6 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel Oee;
     private javax.swing.JPanel Per;
     private javax.swing.JPanel Qua;
-    private javax.swing.JButton btn_Logout;
     private javax.swing.JButton dd;
     private javax.swing.JPanel fBody;
     private javax.swing.JPanel fNav;
