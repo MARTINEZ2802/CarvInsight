@@ -7,13 +7,12 @@ package sac.CarvInsight.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.List;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import sac.CarvInsight.model.Asig_Maquinaria;
 import sac.CarvInsight.model.DAO.Asig_MaquinariaDAO;
 import sac.CarvInsight.model.DAO.Asig_MaquinariaDAOImpl;
+import sac.CarvInsight.util.Imgs;
 
 /**
  *
@@ -21,11 +20,12 @@ import sac.CarvInsight.model.DAO.Asig_MaquinariaDAOImpl;
  */
 public class Assignment extends javax.swing.JInternalFrame {
         int id_asignment=0 ;
-    
+        Imgs llenar = new Imgs();
     
     public Assignment() {
         initComponents();
         llenarTabla();
+        cargarIcons();
     }
 
     void llenarTabla(){
@@ -37,6 +37,7 @@ public class Assignment extends javax.swing.JInternalFrame {
             modelo.addRow(asig.getDatosForTable());
         }
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,8 +51,10 @@ public class Assignment extends javax.swing.JInternalFrame {
         };
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        header = new javax.swing.JLabel();
         btn_Assignment = new javax.swing.JButton();
-        header = new javax.swing.JPanel();
+
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(833, 632));
 
         jScrollPane1.setBackground(new java.awt.Color(6, 42, 64));
         jScrollPane1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -86,6 +89,13 @@ public class Assignment extends javax.swing.JInternalFrame {
             table.getColumnModel().getColumn(3).setPreferredWidth(400);
         }
 
+        jDesktopPane1.add(jScrollPane1);
+        jScrollPane1.setBounds(64, 225, 688, 341);
+
+        header.setMaximumSize(new java.awt.Dimension(821, 80));
+        jDesktopPane1.add(header);
+        header.setBounds(0, 0, 821, 100);
+
         btn_Assignment.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         btn_Assignment.setText("Select Assignment");
         btn_Assignment.addActionListener(new java.awt.event.ActionListener() {
@@ -93,66 +103,30 @@ public class Assignment extends javax.swing.JInternalFrame {
                 btn_AssignmentActionPerformed(evt);
             }
         });
+        jDesktopPane1.add(btn_Assignment);
+        btn_Assignment.setBounds(64, 155, 300, 52);
 
-        header.setBackground(new java.awt.Color(6, 42, 64));
-        header.setPreferredSize(new java.awt.Dimension(0, 120));
-
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 821, Short.MAX_VALUE)
-        );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(btn_Assignment, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(header, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Assignment)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btn_Assignment)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
-        );
+        getContentPane().add(jDesktopPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_AssignmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AssignmentActionPerformed
         // TODO add your handling code here:
-        String new_id= "ASI00"+id_asignment;
+        String new_id= id_asignment+"";
         RegistroUso.txtcode_asig.setText(new_id);
+        
+        //SEND IMAGE TO JLABEL
+         Imgs Llenar = new Imgs();
+         
+         Asig_MaquinariaDAO dao = new Asig_MaquinariaDAOImpl();
+            String tipo_mac = dao.findTipoMac(id_asignment);
+         switch (tipo_mac) {
+                    case "Sliter" -> Llenar.Img2Label(RegistroUso.img_machine, "slitter");
+                    case "Maquina tubera" -> Llenar.Img2Label(RegistroUso.img_machine, "roll");
+                    case "Horno" -> Llenar.Img2Label(RegistroUso.img_machine, "furance");
+                    default -> RegistroUso.img_machine.setIcon(null);
+                }
         this.dispose();
         
     }//GEN-LAST:event_btn_AssignmentActionPerformed
@@ -163,16 +137,13 @@ public class Assignment extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_tableMouseClicked
     
-    private void setIconLabel(JLabel name_label, String root){
-        ImageIcon image = new ImageIcon(root);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(name_label.getWidth(), name_label.getHeight(), Image.SCALE_DEFAULT));
-        name_label.setIcon(icon);
-        this.repaint();
+    private void cargarIcons(){
+        llenar.Img2Label(header, "NewHead");
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Assignment;
-    private javax.swing.JPanel header;
+    private javax.swing.JLabel header;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;

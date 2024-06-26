@@ -16,6 +16,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_Logout = new javax.swing.JButton();
         ww = new javax.swing.JButton();
         dd = new javax.swing.JButton();
         tub1 = new javax.swing.JButton();
@@ -47,6 +48,7 @@ public class OEEGraphics extends javax.swing.JFrame {
         Body = new javax.swing.JLabel();
         fNav = new javax.swing.JPanel();
         fBody = new javax.swing.JPanel();
+        Body1 = new javax.swing.JLabel();
         Machin1 = new javax.swing.JPanel();
         n2 = new javax.swing.JPanel();
         n3 = new javax.swing.JPanel();
@@ -63,6 +65,21 @@ public class OEEGraphics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_LogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_LogoutMouseExited(evt);
+            }
+        });
+        btn_Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 260, 60));
 
         ww.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1W.png"))); // NOI18N
         ww.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -374,15 +391,23 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         fBody.setBackground(new java.awt.Color(204, 204, 204));
 
+        Body1.setBackground(new java.awt.Color(232, 236, 241));
+
         javax.swing.GroupLayout fBodyLayout = new javax.swing.GroupLayout(fBody);
         fBody.setLayout(fBodyLayout);
         fBodyLayout.setHorizontalGroup(
             fBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Body1, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         fBodyLayout.setVerticalGroup(
             fBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Body1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getContentPane().add(fBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 1100, 700));
@@ -749,6 +774,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ava;
     private javax.swing.JLabel Body;
+    private javax.swing.JLabel Body1;
     private javax.swing.JLabel Header;
     private javax.swing.JPanel Line;
     private javax.swing.JPanel Line1;
@@ -762,6 +788,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel Oee;
     private javax.swing.JPanel Per;
     private javax.swing.JPanel Qua;
+    private javax.swing.JButton btn_Logout;
     private javax.swing.JButton dd;
     private javax.swing.JPanel fBody;
     private javax.swing.JPanel fNav;
