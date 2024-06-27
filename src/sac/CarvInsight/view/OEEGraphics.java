@@ -1,6 +1,9 @@
 
 package sac.CarvInsight.view;
 
+import java.awt.Label;
+import javax.swing.JLabel;
+import sac.CarvInsight.util.Draw_G;
 import sac.CarvInsight.util.Imgs;
 
 public class OEEGraphics extends javax.swing.JFrame {
@@ -9,6 +12,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     public OEEGraphics() {
         initComponents();
         LlenadoImagenes();
+        setIconImage(Llenar.getIconImage());
         this.setLocationRelativeTo(this);
         
     }
@@ -39,9 +43,37 @@ public class OEEGraphics extends javax.swing.JFrame {
         Line1 = new javax.swing.JPanel();
         Line2 = new javax.swing.JPanel();
         Oee = new javax.swing.JPanel();
+        GraphOEE = new javax.swing.JPanel();
+        lbl_PerOee = new javax.swing.JLabel();
+        UpDownOEE = new javax.swing.JLabel();
+        headOEE = new javax.swing.JLabel();
+        ceroOee = new javax.swing.JLabel();
+        cienOee = new javax.swing.JLabel();
+        lbl_targetOee = new javax.swing.JLabel();
         Ava = new javax.swing.JPanel();
+        GAva = new javax.swing.JPanel();
+        lbl_PerAva = new javax.swing.JLabel();
+        UpDownAva = new javax.swing.JLabel();
+        headAva = new javax.swing.JLabel();
+        cienAva = new javax.swing.JLabel();
+        ceroAva = new javax.swing.JLabel();
+        lbl_targetAva = new javax.swing.JLabel();
         Per = new javax.swing.JPanel();
+        headQua = new javax.swing.JLabel();
+        GQua = new javax.swing.JPanel();
+        lbl_PerQua = new javax.swing.JLabel();
+        UpDownQua = new javax.swing.JLabel();
+        ceroQua = new javax.swing.JLabel();
+        cienQua = new javax.swing.JLabel();
+        lbl_targetQua = new javax.swing.JLabel();
         Qua = new javax.swing.JPanel();
+        headPer = new javax.swing.JLabel();
+        GPer = new javax.swing.JPanel();
+        lbl_PerPer = new javax.swing.JLabel();
+        UpDownPer = new javax.swing.JLabel();
+        ceroPer = new javax.swing.JLabel();
+        cienPer = new javax.swing.JLabel();
+        lbl_targetPer = new javax.swing.JLabel();
         Header = new javax.swing.JLabel();
         Nav = new javax.swing.JLabel();
         Body = new javax.swing.JLabel();
@@ -113,6 +145,11 @@ public class OEEGraphics extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tub2MouseExited(evt);
+            }
+        });
+        tub2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub2ActionPerformed(evt);
             }
         });
         getContentPane().add(tub2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 236, 300, 34));
@@ -286,64 +323,185 @@ public class OEEGraphics extends javax.swing.JFrame {
         getContentPane().add(Line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 677, 270, 3));
 
         Oee.setBackground(new java.awt.Color(33, 36, 41));
+        Oee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout OeeLayout = new javax.swing.GroupLayout(Oee);
-        Oee.setLayout(OeeLayout);
-        OeeLayout.setHorizontalGroup(
-            OeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1040, Short.MAX_VALUE)
+        GraphOEE.setBackground(new java.awt.Color(33, 36, 41));
+
+        lbl_PerOee.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_PerOee.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout GraphOEELayout = new javax.swing.GroupLayout(GraphOEE);
+        GraphOEE.setLayout(GraphOEELayout);
+        GraphOEELayout.setHorizontalGroup(
+            GraphOEELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GraphOEELayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(lbl_PerOee)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpDownOEE, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(225, Short.MAX_VALUE))
         );
-        OeeLayout.setVerticalGroup(
-            OeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+        GraphOEELayout.setVerticalGroup(
+            GraphOEELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GraphOEELayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addGroup(GraphOEELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_PerOee, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpDownOEE, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
+
+        Oee.add(GraphOEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 53, 380, 190));
+        Oee.add(headOEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 50));
+
+        ceroOee.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        ceroOee.setForeground(new java.awt.Color(255, 255, 255));
+        Oee.add(ceroOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 30, 40));
+
+        cienOee.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        cienOee.setForeground(new java.awt.Color(255, 255, 255));
+        Oee.add(cienOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 70, 40));
+
+        lbl_targetOee.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lbl_targetOee.setForeground(new java.awt.Color(255, 255, 255));
+        Oee.add(lbl_targetOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 380, 70));
 
         getContentPane().add(Oee, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 1040, 280));
 
         Ava.setBackground(new java.awt.Color(33, 36, 41));
+        Ava.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout AvaLayout = new javax.swing.GroupLayout(Ava);
-        Ava.setLayout(AvaLayout);
-        AvaLayout.setHorizontalGroup(
-            AvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+        GAva.setBackground(new java.awt.Color(33, 36, 41));
+
+        lbl_PerAva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_PerAva.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout GAvaLayout = new javax.swing.GroupLayout(GAva);
+        GAva.setLayout(GAvaLayout);
+        GAvaLayout.setHorizontalGroup(
+            GAvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GAvaLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lbl_PerAva, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpDownAva, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
-        AvaLayout.setVerticalGroup(
-            AvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+        GAvaLayout.setVerticalGroup(
+            GAvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GAvaLayout.createSequentialGroup()
+                .addGap(0, 60, Short.MAX_VALUE)
+                .addGroup(GAvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_PerAva, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpDownAva, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        getContentPane().add(Ava, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 336, 290));
+        Ava.add(GAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 200, 100));
+        Ava.add(headAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 336, 37));
+
+        cienAva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cienAva.setForeground(new java.awt.Color(255, 255, 255));
+        Ava.add(cienAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 50, 40));
+
+        ceroAva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ceroAva.setForeground(new java.awt.Color(255, 255, 255));
+        Ava.add(ceroAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 160, 30, 40));
+
+        lbl_targetAva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_targetAva.setForeground(new java.awt.Color(255, 255, 255));
+        Ava.add(lbl_targetAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+
+        getContentPane().add(Ava, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 336, 320));
 
         Per.setBackground(new java.awt.Color(33, 36, 41));
+        Per.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Per.add(headQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 37));
 
-        javax.swing.GroupLayout PerLayout = new javax.swing.GroupLayout(Per);
-        Per.setLayout(PerLayout);
-        PerLayout.setHorizontalGroup(
-            PerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+        GQua.setBackground(new java.awt.Color(33, 36, 41));
+
+        lbl_PerQua.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_PerQua.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout GQuaLayout = new javax.swing.GroupLayout(GQua);
+        GQua.setLayout(GQuaLayout);
+        GQuaLayout.setHorizontalGroup(
+            GQuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GQuaLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lbl_PerQua, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpDownQua, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
-        PerLayout.setVerticalGroup(
-            PerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+        GQuaLayout.setVerticalGroup(
+            GQuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GQuaLayout.createSequentialGroup()
+                .addGap(0, 60, Short.MAX_VALUE)
+                .addGroup(GQuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_PerQua, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpDownQua, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        getContentPane().add(Per, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 460, 340, 290));
+        Per.add(GQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 200, 100));
+
+        ceroQua.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ceroQua.setForeground(new java.awt.Color(255, 255, 255));
+        Per.add(ceroQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 160, 30, 40));
+
+        cienQua.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cienQua.setForeground(new java.awt.Color(255, 255, 255));
+        Per.add(cienQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 50, 40));
+
+        lbl_targetQua.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_targetQua.setForeground(new java.awt.Color(255, 255, 255));
+        Per.add(lbl_targetQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+
+        getContentPane().add(Per, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 460, 340, 320));
 
         Qua.setBackground(new java.awt.Color(33, 36, 41));
+        Qua.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Qua.add(headPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 336, 37));
 
-        javax.swing.GroupLayout QuaLayout = new javax.swing.GroupLayout(Qua);
-        Qua.setLayout(QuaLayout);
-        QuaLayout.setHorizontalGroup(
-            QuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+        GPer.setBackground(new java.awt.Color(33, 36, 41));
+
+        lbl_PerPer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_PerPer.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout GPerLayout = new javax.swing.GroupLayout(GPer);
+        GPer.setLayout(GPerLayout);
+        GPerLayout.setHorizontalGroup(
+            GPerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GPerLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lbl_PerPer, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UpDownPer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
-        QuaLayout.setVerticalGroup(
-            QuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+        GPerLayout.setVerticalGroup(
+            GPerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GPerLayout.createSequentialGroup()
+                .addGap(0, 60, Short.MAX_VALUE)
+                .addGroup(GPerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_PerPer, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpDownPer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        getContentPane().add(Qua, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 336, 290));
+        Qua.add(GPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 200, 100));
+
+        ceroPer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        ceroPer.setForeground(new java.awt.Color(255, 255, 255));
+        Qua.add(ceroPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 160, 30, 40));
+
+        cienPer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        cienPer.setForeground(new java.awt.Color(255, 255, 255));
+        Qua.add(cienPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 50, 40));
+
+        lbl_targetPer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_targetPer.setForeground(new java.awt.Color(255, 255, 255));
+        Qua.add(lbl_targetPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+
+        getContentPane().add(Qua, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 336, 320));
 
         Header.setBackground(new java.awt.Color(51, 51, 255));
         Header.setForeground(new java.awt.Color(102, 102, 255));
@@ -618,6 +776,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_wwMouseExited
 
     private void tub1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub1ActionPerformed
+            Graficar(90, 49.8 , 90.3);
 
     }//GEN-LAST:event_tub1ActionPerformed
 
@@ -713,6 +872,10 @@ public class OEEGraphics extends javax.swing.JFrame {
         Llenar.Img2Btn(Logout, "LogOut");
     }//GEN-LAST:event_LogoutMouseExited
 
+    private void tub2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub2ActionPerformed
+        Graficar(78.6, 34.5 , 12.6);
+    }//GEN-LAST:event_tub2ActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -749,14 +912,78 @@ public class OEEGraphics extends javax.swing.JFrame {
          Llenar.Img2Btn(sliter2, "maq8");
          Llenar.Img2Btn(sliter3, "maq9");
          Llenar.Img2Btn(horno1, "maq10");
+         
+         
+         //Llenar estructura Graphics
+         
+        Llenar.Img2Label(headAva, "headAva");
+        Llenar.Img2Label(headPer, "headPer");
+        Llenar.Img2Label(headQua, "headQua");
+        Llenar.Img2Label(headOEE, "headOEE");
+        
+
     }
     
-    
+    public void Graficar (double PerAva, double PerPer, double PerQua){
+        //Inicializar valores de graficos
+        ceroAva.setText("0");
+        ceroPer.setText("0");
+        ceroQua.setText("0");
+        ceroOee.setText("0");
+        cienAva.setText("100");
+        cienPer.setText("100");
+        cienQua.setText("100");
+        cienOee.setText("100");
+        lbl_targetAva.setText("Target: 90%");
+        lbl_targetPer.setText("Target: 90%");
+        lbl_targetQua.setText("Target: 90%");
+        lbl_targetOee.setText("Target: 90%");
+        
+        
+        
+        double PerOEE = (PerAva+PerPer+PerQua)/3;
+        Draw_G chartAva = new Draw_G(PerAva, GAva);
+        
+        chartAva.SemiCircle(20, "40,164,156", "184,220,220", 200);
+        lbl_PerAva.setText(PerAva+"%");
+        Arrow(UpDownAva, PerAva);
+        
+        Draw_G chartPer = new Draw_G(PerPer,GPer );
+        chartPer.SemiCircle(20, "144,196,76", "240,244,188", 200);
+        lbl_PerPer.setText(PerPer+"%");
+        Arrow(UpDownPer, PerPer);
+        
+        Draw_G chartQua = new Draw_G(PerQua, GQua);
+        chartQua.SemiCircle(20, "253,153,1,255", "251,227,179", 200);
+        lbl_PerQua.setText(PerQua+"%");
+        Arrow(UpDownQua, PerQua);
+        
+        
+        Draw_G chartOEE = new Draw_G(PerOEE, GraphOEE);
+        chartOEE.SemiCircle(40, "80,92,228", "160,196,212", 370);
+        lbl_PerOee.setText(PerOEE+"%");
+        Arrow(UpDownOEE, PerOEE);
+        
+
+    }
+      
+    public void Arrow(JLabel lbl_DownUp, double Per){
+        if(Per>=90){
+            Llenar.Img2Label(lbl_DownUp, "UpArrow");
+        }
+        else{
+            Llenar.Img2Label(lbl_DownUp, "DownArrow");
+        }  
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ava;
     private javax.swing.JLabel Body;
     private javax.swing.JLabel Body1;
+    private javax.swing.JPanel GAva;
+    private javax.swing.JPanel GPer;
+    private javax.swing.JPanel GQua;
+    private javax.swing.JPanel GraphOEE;
     private javax.swing.JLabel Header;
     private javax.swing.JPanel Line;
     private javax.swing.JPanel Line1;
@@ -770,11 +997,35 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel Oee;
     private javax.swing.JPanel Per;
     private javax.swing.JPanel Qua;
+    private javax.swing.JLabel UpDownAva;
+    private javax.swing.JLabel UpDownOEE;
+    private javax.swing.JLabel UpDownPer;
+    private javax.swing.JLabel UpDownQua;
+    private javax.swing.JLabel ceroAva;
+    private javax.swing.JLabel ceroOee;
+    private javax.swing.JLabel ceroPer;
+    private javax.swing.JLabel ceroQua;
+    private javax.swing.JLabel cienAva;
+    private javax.swing.JLabel cienOee;
+    private javax.swing.JLabel cienPer;
+    private javax.swing.JLabel cienQua;
     private javax.swing.JButton dd;
     private javax.swing.JPanel fBody;
     private javax.swing.JPanel fNav;
     private javax.swing.JLabel furance;
+    private javax.swing.JLabel headAva;
+    private javax.swing.JLabel headOEE;
+    private javax.swing.JLabel headPer;
+    private javax.swing.JLabel headQua;
     private javax.swing.JButton horno1;
+    private javax.swing.JLabel lbl_PerAva;
+    private javax.swing.JLabel lbl_PerOee;
+    private javax.swing.JLabel lbl_PerPer;
+    private javax.swing.JLabel lbl_PerQua;
+    private javax.swing.JLabel lbl_targetAva;
+    private javax.swing.JLabel lbl_targetOee;
+    private javax.swing.JLabel lbl_targetPer;
+    private javax.swing.JLabel lbl_targetQua;
     private javax.swing.JPanel machin2;
     private javax.swing.JPanel machine3;
     private javax.swing.JPanel n10;

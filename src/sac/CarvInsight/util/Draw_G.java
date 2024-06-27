@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package sac.CarvInsight.util;
 
 /**
@@ -65,6 +62,8 @@ public class Draw_G{
             g2d.drawArc(x2, y - diameter2 / 2, diameter2, diameter2, 0, 180); */
         }
         
+        
+        
         protected void paintOtherComponents() {
             Graphics2D g2d = (Graphics2D) panel.getGraphics(); // Conversión explícita a Graphics2D
 
@@ -95,5 +94,41 @@ public class Draw_G{
             g2d.setColor(new Color(221,221,221));
             g2d.fillArc(x2, y - diameter2 / 2, diameter2, diameter2, 0, 180);
         }
+        
+        public void SemiCircle(int Grosor, String Color, String BackColor, int size) {
+           
+            Graphics2D g2d = (Graphics2D) panel.getGraphics(); // Conversión explícita a Graphics2D
+            // Suavizar los bordes del dibujo
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            //Descomposicion de colores 
+            
+            String[] rgbStrings = Color.split(",");
+            // Convierte las partes en enteros
+            int red = Integer.parseInt(rgbStrings[0]);
+            int green = Integer.parseInt(rgbStrings[1]);
+            int blue = Integer.parseInt(rgbStrings[2]);
+            
+            
+            String[] rgbStringsback = BackColor.split(",");
+            // Convierte las partes en enteros
+            int redback = Integer.parseInt(rgbStringsback[0]);
+            int greenback = Integer.parseInt(rgbStringsback[1]);
+            int blueback = Integer.parseInt(rgbStringsback[2]);
+            
+            // Dibujar y pintar de fondo en el circulo principal (Es el color que aparece como el porcentaje llenado)
+            g2d.setColor(new Color(red, green, blue));
+            g2d.fillArc(0, 0, size, size, 0, 180);
+
+            // Dibujar y pintar el fondo del circulo (Es el color que aparece como faltante del porcentaje)
+            g2d.setColor(new Color(redback, greenback, blueback));
+             int arcAngle = (int) (180 * percentage / 100);
+            g2d.fillArc(0, 0, size, size, 0, 180-arcAngle);
+            
+            //Pintar el color de fondo para que aparezca solo el anillo.
+            g2d.setColor(new Color(33,36,41));
+            g2d.fillArc(Grosor, Grosor*2 / 2, size-(Grosor*2),size-(Grosor*2), 0, 180);
+
+        }
+        
     }
 

@@ -8,21 +8,25 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import sac.CarvInsight.util.Draw_G;
+import sac.CarvInsight.util.Imgs;
 
 /**
  *
  * @author adali
  */
 public class Graphics_prueba extends javax.swing.JFrame {
-
+    Imgs Llenar = new Imgs();
     /**
      * Creates new form Graphics
      */
     public Graphics_prueba() {
         initComponents();
+        setIconImage(Llenar.getIconImage());
         
         this.setLocationRelativeTo(null);
     }
@@ -93,7 +97,12 @@ public class Graphics_prueba extends javax.swing.JFrame {
         chart.paintComponentOEE();
         //chart.Background();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */

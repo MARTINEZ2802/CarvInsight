@@ -4,6 +4,7 @@ package sac.CarvInsight.util;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,6 +30,12 @@ public class Imgs {
         ImageIcon image = new ImageIcon("src/img/"+Nombre+".png");
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(namebtn.getWidth(),namebtn.getHeight(),Image.SCALE_DEFAULT));
         namebtn.setIcon(icon); //
+    }
+    
+    public Image getIconImage (){
+       Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/logo.png"));
+       return retValue;
+    
     }
     
 }
