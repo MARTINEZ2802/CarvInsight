@@ -4,6 +4,7 @@
  */
 package sac.CarvInsight.view;
 
+import com.raven.chart.ModelChart;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,6 +15,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import sac.CarvInsight.util.Draw_G;
 import sac.CarvInsight.util.Imgs;
+
 
 /**
  *
@@ -27,8 +29,12 @@ public class Graphics_prueba extends javax.swing.JFrame {
     public Graphics_prueba() {
         initComponents();
         setIconImage(Llenar.getIconImage());
-        
         this.setLocationRelativeTo(null);
+        getContentPane().setBackground(new Color(250, 250, 250));
+        chart.addLegend("Real", new Color(245, 189, 135));
+        chart.addLegend("Esperado", new Color(135, 189, 245));
+        chart.addLegend("diff", new Color(189, 135, 245));
+        chart.addData(new ModelChart("", new double[]{500, 200, 80}));
     }
 
     /**
@@ -42,19 +48,28 @@ public class Graphics_prueba extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
+        chart = new com.raven.chart.Chart();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        chart.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 696, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jButton1.setText("jButton1");
@@ -83,7 +98,7 @@ public class Graphics_prueba extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(27, 27, 27))
         );
@@ -96,6 +111,11 @@ public class Graphics_prueba extends javax.swing.JFrame {
         Draw_G chart = new Draw_G(70, this.panel);
         chart.paintComponentOEE();
         //chart.Background();
+        
+        
+       this.chart.clear();
+       this.chart.addData(new ModelChart("", new double[]{500, 200, 80, 89}));
+       this.chart.start();
     }//GEN-LAST:event_jButton1ActionPerformed
     
     
@@ -139,6 +159,7 @@ public class Graphics_prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.chart.Chart chart;
     private javax.swing.JButton jButton1;
     public static javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
