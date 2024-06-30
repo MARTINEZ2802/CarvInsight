@@ -1,21 +1,29 @@
-
 package sac.CarvInsight.view;
 
-import java.awt.Label;
+import com.raven.chart.ModelChart;
+import java.awt.Color;
+import com.raven.chart.Chart;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.JLabel;
+
 import sac.CarvInsight.util.Draw_G;
 import sac.CarvInsight.util.Imgs;
 
 public class OEEGraphics extends javax.swing.JFrame {
+
     Imgs Llenar = new Imgs();
 
     public OEEGraphics() {
         initComponents();
         LlenadoImagenes();
-        setIconImage(Llenar.getIconImage());
+        LoadLegend();
+
+        //setIconImage(Llenar.getIconImage());
         this.setLocationRelativeTo(this);
-        
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -46,6 +54,7 @@ public class OEEGraphics extends javax.swing.JFrame {
         GraphOEE = new javax.swing.JPanel();
         lbl_PerOee = new javax.swing.JLabel();
         UpDownOEE = new javax.swing.JLabel();
+        lb_machine = new javax.swing.JLabel();
         headOEE = new javax.swing.JLabel();
         ceroOee = new javax.swing.JLabel();
         cienOee = new javax.swing.JLabel();
@@ -58,6 +67,14 @@ public class OEEGraphics extends javax.swing.JFrame {
         cienAva = new javax.swing.JLabel();
         ceroAva = new javax.swing.JLabel();
         lbl_targetAva = new javax.swing.JLabel();
+        BarAva = new com.raven.chart.Chart();
+        lb_DiffAva = new javax.swing.JLabel();
+        lb_PlanAva = new javax.swing.JLabel();
+        lb_RealAva = new javax.swing.JLabel();
+        downtime = new javax.swing.JLabel();
+        PlannedAva1 = new javax.swing.JLabel();
+        planned = new javax.swing.JLabel();
+        executed = new javax.swing.JLabel();
         Per = new javax.swing.JPanel();
         headQua = new javax.swing.JLabel();
         GQua = new javax.swing.JPanel();
@@ -66,6 +83,11 @@ public class OEEGraphics extends javax.swing.JFrame {
         ceroQua = new javax.swing.JLabel();
         cienQua = new javax.swing.JLabel();
         lbl_targetQua = new javax.swing.JLabel();
+        BarQua = new com.raven.chart.Chart();
+        lb_PlanQua = new javax.swing.JLabel();
+        lb_RealQua = new javax.swing.JLabel();
+        rejected = new javax.swing.JLabel();
+        received = new javax.swing.JLabel();
         Qua = new javax.swing.JPanel();
         headPer = new javax.swing.JLabel();
         GPer = new javax.swing.JPanel();
@@ -74,6 +96,11 @@ public class OEEGraphics extends javax.swing.JFrame {
         ceroPer = new javax.swing.JLabel();
         cienPer = new javax.swing.JLabel();
         lbl_targetPer = new javax.swing.JLabel();
+        BarPer = new com.raven.chart.Chart();
+        lb_PlanPer = new javax.swing.JLabel();
+        lb_RealPer = new javax.swing.JLabel();
+        expected = new javax.swing.JLabel();
+        obtained = new javax.swing.JLabel();
         Header = new javax.swing.JLabel();
         Nav = new javax.swing.JLabel();
         Body = new javax.swing.JLabel();
@@ -125,10 +152,18 @@ public class OEEGraphics extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tub1MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tub1MousePressed(evt);
+            }
         });
         tub1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tub1ActionPerformed(evt);
+            }
+        });
+        tub1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tub1PropertyChange(evt);
             }
         });
         tub1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -161,6 +196,11 @@ public class OEEGraphics extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tub3MouseExited(evt);
+            }
+        });
+        tub3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub3ActionPerformed(evt);
             }
         });
         getContentPane().add(tub3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 300, 34));
@@ -352,6 +392,10 @@ public class OEEGraphics extends javax.swing.JFrame {
         );
 
         Oee.add(GraphOEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 53, 380, 190));
+
+        lb_machine.setFont(new java.awt.Font("Segoe UI", 1, 50)); // NOI18N
+        lb_machine.setForeground(new java.awt.Color(255, 255, 255));
+        Oee.add(lb_machine, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 300, 60));
         Oee.add(headOEE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 50));
 
         ceroOee.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -362,9 +406,9 @@ public class OEEGraphics extends javax.swing.JFrame {
         cienOee.setForeground(new java.awt.Color(255, 255, 255));
         Oee.add(cienOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 70, 40));
 
-        lbl_targetOee.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lbl_targetOee.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lbl_targetOee.setForeground(new java.awt.Color(255, 255, 255));
-        Oee.add(lbl_targetOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 380, 70));
+        Oee.add(lbl_targetOee, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 380, 70));
 
         getContentPane().add(Oee, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 1040, 280));
 
@@ -385,7 +429,7 @@ public class OEEGraphics extends javax.swing.JFrame {
                 .addComponent(lbl_PerAva, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UpDownAva, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         GAvaLayout.setVerticalGroup(
             GAvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,9 +453,54 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         lbl_targetAva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_targetAva.setForeground(new java.awt.Color(255, 255, 255));
-        Ava.add(lbl_targetAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+        Ava.add(lbl_targetAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, 40));
 
-        getContentPane().add(Ava, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 336, 320));
+        BarAva.setBackground(new java.awt.Color(33, 36, 41));
+        Ava.add(BarAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 320, 70));
+
+        lb_DiffAva.setBackground(new java.awt.Color(255, 255, 255));
+        lb_DiffAva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_DiffAva.setForeground(new java.awt.Color(255, 255, 255));
+        lb_DiffAva.setAlignmentY(0.0F);
+        Ava.add(lb_DiffAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 50, 20));
+
+        lb_PlanAva.setBackground(new java.awt.Color(255, 255, 255));
+        lb_PlanAva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_PlanAva.setForeground(new java.awt.Color(255, 255, 255));
+        lb_PlanAva.setAlignmentY(0.0F);
+        Ava.add(lb_PlanAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 50, 15));
+
+        lb_RealAva.setBackground(new java.awt.Color(255, 255, 255));
+        lb_RealAva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_RealAva.setForeground(new java.awt.Color(255, 255, 255));
+        lb_RealAva.setAlignmentY(0.0F);
+        Ava.add(lb_RealAva, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 50, 20));
+
+        downtime.setBackground(new java.awt.Color(255, 255, 255));
+        downtime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        downtime.setForeground(new java.awt.Color(255, 255, 255));
+        downtime.setAlignmentY(0.0F);
+        Ava.add(downtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 80, 15));
+
+        PlannedAva1.setBackground(new java.awt.Color(255, 255, 255));
+        PlannedAva1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PlannedAva1.setForeground(new java.awt.Color(255, 255, 255));
+        PlannedAva1.setAlignmentY(0.0F);
+        Ava.add(PlannedAva1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 70, 15));
+
+        planned.setBackground(new java.awt.Color(255, 255, 255));
+        planned.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        planned.setForeground(new java.awt.Color(255, 255, 255));
+        planned.setAlignmentY(0.0F);
+        Ava.add(planned, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 60, 15));
+
+        executed.setBackground(new java.awt.Color(255, 255, 255));
+        executed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        executed.setForeground(new java.awt.Color(255, 255, 255));
+        executed.setAlignmentY(0.0F);
+        Ava.add(executed, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 70, 15));
+
+        getContentPane().add(Ava, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 336, 330));
 
         Per.setBackground(new java.awt.Color(33, 36, 41));
         Per.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -454,9 +543,37 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         lbl_targetQua.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_targetQua.setForeground(new java.awt.Color(255, 255, 255));
-        Per.add(lbl_targetQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+        Per.add(lbl_targetQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, 40));
 
-        getContentPane().add(Per, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 460, 340, 320));
+        BarQua.setBackground(new java.awt.Color(33, 36, 41));
+        Per.add(BarQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 320, 70));
+
+        lb_PlanQua.setBackground(new java.awt.Color(255, 255, 255));
+        lb_PlanQua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_PlanQua.setForeground(new java.awt.Color(255, 255, 255));
+        lb_PlanQua.setAlignmentY(0.0F);
+        Per.add(lb_PlanQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 50, 20));
+
+        lb_RealQua.setBackground(new java.awt.Color(255, 255, 255));
+        lb_RealQua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_RealQua.setForeground(new java.awt.Color(255, 255, 255));
+        lb_RealQua.setAlignmentY(0.0F);
+        Per.add(lb_RealQua, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 50, 20));
+
+        rejected.setBackground(new java.awt.Color(255, 255, 255));
+        rejected.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        rejected.setForeground(new java.awt.Color(255, 255, 255));
+        rejected.setText("Rejected");
+        rejected.setAlignmentY(0.0F);
+        Per.add(rejected, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 60, 15));
+
+        received.setBackground(new java.awt.Color(255, 255, 255));
+        received.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        received.setForeground(new java.awt.Color(255, 255, 255));
+        received.setAlignmentY(0.0F);
+        Per.add(received, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 70, 15));
+
+        getContentPane().add(Per, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 460, 340, 330));
 
         Qua.setBackground(new java.awt.Color(33, 36, 41));
         Qua.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -499,9 +616,36 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         lbl_targetPer.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_targetPer.setForeground(new java.awt.Color(255, 255, 255));
-        Qua.add(lbl_targetPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 150, 40));
+        Qua.add(lbl_targetPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, 40));
 
-        getContentPane().add(Qua, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 336, 320));
+        BarPer.setBackground(new java.awt.Color(33, 36, 41));
+        Qua.add(BarPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 320, 70));
+
+        lb_PlanPer.setBackground(new java.awt.Color(255, 255, 255));
+        lb_PlanPer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_PlanPer.setForeground(new java.awt.Color(255, 255, 255));
+        lb_PlanPer.setAlignmentY(0.0F);
+        Qua.add(lb_PlanPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 50, 20));
+
+        lb_RealPer.setBackground(new java.awt.Color(255, 255, 255));
+        lb_RealPer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_RealPer.setForeground(new java.awt.Color(255, 255, 255));
+        lb_RealPer.setAlignmentY(0.0F);
+        Qua.add(lb_RealPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 50, 20));
+
+        expected.setBackground(new java.awt.Color(255, 255, 255));
+        expected.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        expected.setForeground(new java.awt.Color(255, 255, 255));
+        expected.setAlignmentY(0.0F);
+        Qua.add(expected, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 70, 15));
+
+        obtained.setBackground(new java.awt.Color(255, 255, 255));
+        obtained.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        obtained.setForeground(new java.awt.Color(255, 255, 255));
+        obtained.setAlignmentY(0.0F);
+        Qua.add(obtained, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 70, 15));
+
+        getContentPane().add(Qua, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 336, 330));
 
         Header.setBackground(new java.awt.Color(51, 51, 255));
         Header.setForeground(new java.awt.Color(102, 102, 255));
@@ -776,7 +920,10 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_wwMouseExited
 
     private void tub1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub1ActionPerformed
-            Graficar(90, 49.8 , 90.3);
+        Graficar(78.6, 53.4, 34.5, 24.6, 12.6, 10.4);
+        lb_machine.setText("QT-Compact");
+ 
+        
 
     }//GEN-LAST:event_tub1ActionPerformed
 
@@ -801,7 +948,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_tub2MouseExited
 
     private void tub3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub3MouseEntered
-         Llenar.Img2Btn(tub3, "maq3Hover");
+        Llenar.Img2Btn(tub3, "maq3Hover");
     }//GEN-LAST:event_tub3MouseEntered
 
     private void tub3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub3MouseExited
@@ -817,7 +964,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_tub4MouseExited
 
     private void tub5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub5MouseEntered
-       Llenar.Img2Btn(tub5, "maq5Hover");
+        Llenar.Img2Btn(tub5, "maq5Hover");
     }//GEN-LAST:event_tub5MouseEntered
 
     private void tub5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub5MouseExited
@@ -841,7 +988,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_sliter1MouseExited
 
     private void sliter3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter3MouseEntered
-       Llenar.Img2Btn(sliter3, "maq9Hover");
+        Llenar.Img2Btn(sliter3, "maq9Hover");
     }//GEN-LAST:event_sliter3MouseEntered
 
     private void sliter3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sliter3MouseExited
@@ -873,58 +1020,97 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutMouseExited
 
     private void tub2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub2ActionPerformed
-        Graficar(78.6, 34.5 , 12.6);
+        Graficar(90.6, 53.4, 32.5, 24.6, 16.6, 10.4);
+        lb_machine.setText("VF-2");
     }//GEN-LAST:event_tub2ActionPerformed
 
+    private void tub1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tub1MousePressed
+        Llenar.Img2Btn(tub1, "maq1Hover");
+    }//GEN-LAST:event_tub1MousePressed
+
+    private void tub1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tub1PropertyChange
+       
+    }//GEN-LAST:event_tub1PropertyChange
+
+    private void tub3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub3ActionPerformed
+       lb_machine.setText("DP4011");
+    }//GEN-LAST:event_tub3ActionPerformed
+
+
+    
+    
     
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new OEEGraphics().setVisible(true);
             }
         });
     }
-    
-    
-    public void LlenadoImagenes(){
-        
-        Llenar.Img2Label(Header,"NewHead");
+
+    public void LlenadoImagenes() {
+
+        Llenar.Img2Label(Header, "NewHead");
         Llenar.Img2Label(Nav, "BlueBlock");
         Llenar.Img2Label(Body, "WhiteBlock");
-        Llenar.Img2Btn(ww,"1W");
-        Llenar.Img2Btn(dd,"1D");
+        Llenar.Img2Btn(ww, "1W");
+        Llenar.Img2Btn(dd, "1D");
         Llenar.Img2Label(roll, "roll");
         Llenar.Img2Label(slitter, "slitter");
         Llenar.Img2Label(furance, "furance");
         Llenar.Img2Btn(Logout, "LogOut");
-        
+
         //bto
-         Llenar.Img2Btn(tub1, "maq1");
-         Llenar.Img2Btn(tub2, "maq2");
-         Llenar.Img2Btn(tub3, "maq3");
-         Llenar.Img2Btn(tub4, "maq4");
-         Llenar.Img2Btn(tub5, "maq5");
-         Llenar.Img2Btn(tub6, "maq6");
-         Llenar.Img2Btn(sliter1, "maq7");
-         Llenar.Img2Btn(sliter2, "maq8");
-         Llenar.Img2Btn(sliter3, "maq9");
-         Llenar.Img2Btn(horno1, "maq10");
-         
-         
-         //Llenar estructura Graphics
-         
+        Llenar.Img2Btn(tub1, "maq1");
+        Llenar.Img2Btn(tub2, "maq2");
+        Llenar.Img2Btn(tub3, "maq3");
+        Llenar.Img2Btn(tub4, "maq4");
+        Llenar.Img2Btn(tub5, "maq5");
+        Llenar.Img2Btn(tub6, "maq6");
+        Llenar.Img2Btn(sliter1, "maq7");
+        Llenar.Img2Btn(sliter2, "maq8");
+        Llenar.Img2Btn(sliter3, "maq9");
+        Llenar.Img2Btn(horno1, "maq10");
+
+        //Llenar estructura Graphics
         Llenar.Img2Label(headAva, "headAva");
         Llenar.Img2Label(headPer, "headPer");
         Llenar.Img2Label(headQua, "headQua");
         Llenar.Img2Label(headOEE, "headOEE");
-        
 
     }
-    
-    public void Graficar (double PerAva, double PerPer, double PerQua){
+
+    public void LoadLegend() {
+        BarAva.addLegend("", new Color(36, 131, 122));
+        BarAva.addLegend("", new Color(98, 202, 193));
+        BarAva.addLegend("", new Color(160, 50, 50));
+        
+
+        BarPer.addLegend("", new Color(71, 119, 48));
+        BarPer.addLegend("", new Color(139, 194, 72));
+
+        BarQua.addLegend("", new Color(224,124,2));
+        BarQua.addLegend("", new Color(195,149,79));
+
+    }
+
+    public void LoadBars3Col(Chart bar, double planned, double fact) {
+        bar.clear();
+        bar.addData(new ModelChart("", new double[]{planned, fact, planned - fact}));
+        bar.start();
+    }
+
+    public void LoadBars2Col(Chart bar, double planned, double fact) {
+        bar.clear();
+        bar.addData(new ModelChart("", new double[]{planned, fact}));
+        bar.start();
+    }
+
+    public void Graficar(double AvaPla, double AvaReal, double PerPla, double PerReal,double QuaPla, double QuaReal ) {
+        LimpiarLbl();
         //Inicializar valores de graficos
         ceroAva.setText("0");
         ceroPer.setText("0");
@@ -939,45 +1125,115 @@ public class OEEGraphics extends javax.swing.JFrame {
         lbl_targetQua.setText("Target: 90%");
         lbl_targetOee.setText("Target: 90%");
         
+        planned.setText("Planned");
+        executed.setText("Executed");
+        downtime.setText("Downtime");
+        expected.setText("Expeted");
+        obtained.setText("Obtained");
+        received.setText("Received");
+        rejected.setText("Reject");
+       double PerAvaI= AvaReal/AvaPla*100;
+        BigDecimal bd = new BigDecimal(Double.toString(PerAvaI));
+        bd = bd.setScale(1, RoundingMode.HALF_UP);
+        double PerAva = bd.doubleValue();
+        System.out.println(PerAva+"");
         
+        double PerPerI= PerReal/PerPla*100;
+        BigDecimal bd2 = new BigDecimal(Double.toString(PerPerI));
+        bd2 = bd2.setScale(1, RoundingMode.HALF_UP);
+        double PerPer = bd2.doubleValue();
         
-        double PerOEE = (PerAva+PerPer+PerQua)/3;
+        double PerQuaI = QuaReal/QuaPla*100;  
+        BigDecimal bd3 = new BigDecimal(Double.toString(PerQuaI));
+        bd3 = bd3.setScale(1, RoundingMode.HALF_UP);
+        double PerQua = bd3.doubleValue();
+        
+        double PerOEEI = (PerAva + PerPer + PerQua) / 3;
+        BigDecimal bd6 = new BigDecimal(Double.toString(PerOEEI));
+        bd6 = bd6.setScale(1, RoundingMode.HALF_UP);
+        double PerOEE = bd6.doubleValue();
+        
+//TO AVAILABILITY
         Draw_G chartAva = new Draw_G(PerAva, GAva);
-        
         chartAva.SemiCircle(20, "40,164,156", "184,220,220", 200);
-        lbl_PerAva.setText(PerAva+"%");
+        lbl_PerAva.setText(PerAva + "%");
         Arrow(UpDownAva, PerAva);
+        //Bars
+        LoadBars3Col(BarAva, AvaPla, AvaReal);
+         lb_PlanAva.setText(AvaPla+"");
+         lb_RealAva.setText(AvaReal+"");
+        double inter= AvaPla-AvaReal;
+        System.out.println(inter+"");
         
-        Draw_G chartPer = new Draw_G(PerPer,GPer );
+        BigDecimal bd5 = new BigDecimal(Double.toString(inter));
+        bd5 = bd5.setScale(1, RoundingMode.HALF_UP);
+        double a = bd5.doubleValue();
+ 
+         lb_DiffAva.setText(a+"");
+//TO PERFORMANCE
+        Draw_G chartPer = new Draw_G(PerPer, GPer);
         chartPer.SemiCircle(20, "144,196,76", "240,244,188", 200);
-        lbl_PerPer.setText(PerPer+"%");
+        lbl_PerPer.setText(PerPer + "%");
         Arrow(UpDownPer, PerPer);
-        
+        //Bars
+        LoadBars2Col(BarPer, PerPla, PerReal);
+        lb_PlanPer.setText(PerPla+"");
+        lb_RealPer.setText(PerReal+"");
+//TO QUALITY 
         Draw_G chartQua = new Draw_G(PerQua, GQua);
         chartQua.SemiCircle(20, "253,153,1,255", "251,227,179", 200);
-        lbl_PerQua.setText(PerQua+"%");
+        lbl_PerQua.setText(PerQua + "%");
         Arrow(UpDownQua, PerQua);
-        
-        
+        //Bars
+        LoadBars2Col(BarQua, QuaPla, QuaReal);
+        lb_PlanQua.setText(QuaPla+"");
+        lb_RealQua.setText(QuaReal+"");
+//TO OEE
         Draw_G chartOEE = new Draw_G(PerOEE, GraphOEE);
         chartOEE.SemiCircle(40, "80,92,228", "160,196,212", 370);
-        lbl_PerOee.setText(PerOEE+"%");
-        Arrow(UpDownOEE, PerOEE);
         
+        lbl_PerOee.setText(PerOEE + "%");
+        Arrow(UpDownOEE, PerOEE);
 
     }
-      
-    public void Arrow(JLabel lbl_DownUp, double Per){
-        if(Per>=90){
+
+    public void Arrow(JLabel lbl_DownUp, double Per) {
+        if (Per >= 90) {
             Llenar.Img2Label(lbl_DownUp, "UpArrow");
-        }
-        else{
+        } else {
             Llenar.Img2Label(lbl_DownUp, "DownArrow");
-        }  
+        }
+    }
+    
+
+       
+   
+    
+    
+    public void LimpiarLbl(){
+        lbl_PerAva.removeAll();
+        lbl_PerPer.removeAll();
+        lbl_PerQua.removeAll();
+        lbl_PerOee.removeAll();
+        
+        lb_DiffAva.removeAll();
+        lb_PlanAva.removeAll();
+        lb_RealAva.removeAll();
+        
+        lb_PlanPer.removeAll();
+        lb_RealPer.removeAll();
+        
+        lb_PlanQua.removeAll();
+        lb_RealQua.removeAll();
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ava;
+    private com.raven.chart.Chart BarAva;
+    private com.raven.chart.Chart BarPer;
+    private com.raven.chart.Chart BarQua;
     private javax.swing.JLabel Body;
     private javax.swing.JLabel Body1;
     private javax.swing.JPanel GAva;
@@ -996,6 +1252,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JLabel Nav;
     private javax.swing.JPanel Oee;
     private javax.swing.JPanel Per;
+    private javax.swing.JLabel PlannedAva1;
     private javax.swing.JPanel Qua;
     private javax.swing.JLabel UpDownAva;
     private javax.swing.JLabel UpDownOEE;
@@ -1010,6 +1267,9 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JLabel cienPer;
     private javax.swing.JLabel cienQua;
     private javax.swing.JButton dd;
+    private javax.swing.JLabel downtime;
+    private javax.swing.JLabel executed;
+    private javax.swing.JLabel expected;
     private javax.swing.JPanel fBody;
     private javax.swing.JPanel fNav;
     private javax.swing.JLabel furance;
@@ -1018,6 +1278,14 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JLabel headPer;
     private javax.swing.JLabel headQua;
     private javax.swing.JButton horno1;
+    private javax.swing.JLabel lb_DiffAva;
+    private javax.swing.JLabel lb_PlanAva;
+    private javax.swing.JLabel lb_PlanPer;
+    private javax.swing.JLabel lb_PlanQua;
+    private javax.swing.JLabel lb_RealAva;
+    private javax.swing.JLabel lb_RealPer;
+    private javax.swing.JLabel lb_RealQua;
+    private javax.swing.JLabel lb_machine;
     private javax.swing.JLabel lbl_PerAva;
     private javax.swing.JLabel lbl_PerOee;
     private javax.swing.JLabel lbl_PerPer;
@@ -1037,6 +1305,10 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JPanel n6;
     private javax.swing.JPanel n7;
     private javax.swing.JPanel n9;
+    private javax.swing.JLabel obtained;
+    private javax.swing.JLabel planned;
+    private javax.swing.JLabel received;
+    private javax.swing.JLabel rejected;
     private javax.swing.JLabel roll;
     private javax.swing.JButton sliter1;
     private javax.swing.JButton sliter2;
@@ -1050,7 +1322,5 @@ public class OEEGraphics extends javax.swing.JFrame {
     private javax.swing.JButton tub6;
     private javax.swing.JButton ww;
     // End of variables declaration//GEN-END:variables
-
-
 
 }
