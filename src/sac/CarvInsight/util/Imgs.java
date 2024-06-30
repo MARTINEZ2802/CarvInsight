@@ -2,13 +2,11 @@
 package sac.CarvInsight.util;
 
 
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 
@@ -32,10 +30,15 @@ public class Imgs {
         namebtn.setIcon(icon); //
     }
     
-    public Image getIconImage (){
-       Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("img/logo.png"));
-       return retValue;
-    
-    }
+//    public Image getIconImage (){
+////       Image retValue = Toolkit.getDefsaultToolkit().getImage(ClassLoader.getSystemResource("img/logo.png"));
+//
+//
+//
+//         //Image retValue = Toolkit.getDefaultToolkit().getImage(getClass().getResourceAsStream("/img/logo.png"));
+//         
+//            return retValue;
+//    
+//    }
     
 }

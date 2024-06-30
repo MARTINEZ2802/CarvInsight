@@ -21,7 +21,7 @@ public class OEEGraphics extends javax.swing.JFrame {
 
         //setIconImage(Llenar.getIconImage());
         this.setLocationRelativeTo(this);
-
+//aaaaaaaaaaaa
     }
 
     @SuppressWarnings("unchecked")
