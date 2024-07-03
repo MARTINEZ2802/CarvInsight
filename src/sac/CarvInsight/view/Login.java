@@ -62,7 +62,6 @@ public class Login extends javax.swing.JFrame {
         txt_Pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1400, 800));
 
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(1400, 800));
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +123,8 @@ public class Login extends javax.swing.JFrame {
         iconUser.setBorder(new MatteBorder(0, 0, 0, 2, new Color(	29, 85, 121)));
         jPanel1.add(iconUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 50, 40));
 
-        btnEye.setBackground(new java.awt.Color(200, 207, 216));
+        btnEye.setBackground(new java.awt.Color(255, 255, 255));
+        btnEye.setBorder(null);
         btnEye.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEyeActionPerformed(evt);

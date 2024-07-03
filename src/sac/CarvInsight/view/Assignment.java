@@ -4,6 +4,7 @@
  */
 package sac.CarvInsight.view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.List;
@@ -26,6 +27,7 @@ public class Assignment extends javax.swing.JInternalFrame {
         initComponents();
         llenarTabla();
         cargarIcons();
+        table.getTableHeader().setBackground(new Color(6, 42, 64));
     }
 
     void llenarTabla(){

@@ -64,7 +64,7 @@ public class Asig_MaquinariaDAOImpl implements Asig_MaquinariaDAO{
     @Override
     public String findTipoMac(int id_Asig) {
         String name_mac="";
-        String Query = "SELECT m.tipo_maq FROM  reg_using ru INNER JOIN asig_machines am ON ru.id_asig = am.id_asig "
+        String Query = "SELECT m.tipo_maq FROM asig_machines am "
                 + "INNER JOIN machines m ON am.id_maq = m.id_maq WHERE am.id_asig = ?";
         try {
             Connection conn = Conexion.getConnection();

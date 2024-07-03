@@ -54,7 +54,10 @@ public class RegistroUso extends javax.swing.JFrame {
     }
     
     public String getDate(){
-        return date.getText().trim();
+        Date fechaActual = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yy/MM/dd");
+        String nueva_fecha = formatoFecha.format(fechaActual);
+        return nueva_fecha;
     }
     
     public int getId(){
@@ -64,7 +67,7 @@ public class RegistroUso extends javax.swing.JFrame {
     public float getTime(){
         int hora=Integer.parseInt(txtHours.getText().trim());
         int minutes = Integer.parseInt(txtMinutes.getText().trim());
-        float timeWork = hora + (minutes/60);
+        float timeWork = ((hora*60) + (minutes));
         return timeWork;
     }
     public int getQuantities(){

@@ -16,7 +16,7 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
     public int insert(Reg_UsoMaq RgUso) {
     int result=0;
     String sql= """
-                INSERTO INTO Reg_using (id_asig, date_use, time_work, quantity, error)
+                INSERT INTO Reg_using (id_asig, date_use, time_work, quantity, error)
                 VALUES (?,?,?,?,?)""";
     try {
             Connection conn = Conexion.getConnection();
@@ -38,28 +38,29 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
     }
 
     @Override
-    public OEEGraphic findToDay(int id_maq, String Date) {
-    String query = """
-                   SELECT 
-                       ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, 
-                       m.perfor_maq, am.time_estimate
-                   FROM 
-                       reg_using ru
-                   INNER JOIN 
-                       asig_machines am ON ru.id_asig = am.id_asig
-                   INNER JOIN 
-                       machines m ON am.id_maq = m.id_maq
-                   WHERE 
-                   \t ru.date_use =? AND m.id_maq=?;""";
+    public List<OEEGraphic> findToDay(int id_maq, String Date) {
+        List<OEEGraphic> LisOEE = new ArrayList<>();
+    String query = "SELECT " +
+               "ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, " +
+               "m.perfor_maq, am.time_estimate " +
+               "FROM " +
+               "reg_using ru " +
+               "INNER JOIN " +
+               "asig_machines am ON ru.id_asig = am.id_asig " +
+               "INNER JOIN " +
+               "machines m ON am.id_maq = m.id_maq " +
+               "WHERE " +
+               "ru.date_use = ? AND m.id_maq = ?;";
     
-    OEEGraphic OeeG = new OEEGraphic();
         try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setInt(1, id_maq);
-            stmt.setString(2, Date);
+            stmt.setString(1, Date);
+            stmt.setInt(2, id_maq);
             ResultSet rs = stmt.executeQuery();
+            System.out.println("Conexion");
             if (rs.next()) {  
+                OEEGraphic OeeG = new OEEGraphic();
                 OeeG.setId_asig(rs.getInt("id_asig"));
                 OeeG.setDate(rs.getString("date_use"));
                 OeeG.setTimeWork(rs.getFloat("time_work"));
@@ -67,11 +68,13 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
                 OeeG.setError(rs.getInt("error"));
                 OeeG.setPerfr_maq(rs.getInt("perfor_maq"));
                 OeeG.setPlanned_time(rs.getFloat("time_estimate"));
+                System.out.println("time: "+OeeG.getTimeWork());
+                LisOEE.add(OeeG);
             }
         } catch (Exception e) {
             System.out.println("Ocurrio un error: " + e.getMessage());
         }
-      return OeeG;     
+      return LisOEE;   
     }
 
     @Override

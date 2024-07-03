@@ -5,7 +5,13 @@ import java.awt.Color;
 import com.raven.chart.Chart;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JLabel;
+import sac.CarvInsight.model.DAO.Reg_UsoMaqDAO;
+import sac.CarvInsight.model.DAO.Reg_UsoMaqDAOImpl;
+import sac.CarvInsight.model.OEEGraphic;
 
 import sac.CarvInsight.util.Draw_G;
 import sac.CarvInsight.util.Imgs;
@@ -13,7 +19,9 @@ import sac.CarvInsight.util.Imgs;
 public class OEEGraphics extends javax.swing.JFrame {
 
     Imgs Llenar = new Imgs();
-
+    Reg_UsoMaqDAO dao = new  Reg_UsoMaqDAOImpl();
+    int id_maq = 0;
+    
     public OEEGraphics() {
         initComponents();
         LlenadoImagenes();
@@ -23,7 +31,13 @@ public class OEEGraphics extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
 //aaaaaaaaaaaa
     }
-
+    
+    public String getDate(){
+        Date fechaActual = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+        String nueva_fecha = formatoFecha.format(fechaActual);
+        return nueva_fecha;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -955,7 +969,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_wwMouseExited
 
     private void tub1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub1ActionPerformed
-        Graficar(78.6, 53.4, 34.5, 24.6, 12.6, 10.4);
+         id_maq = 1;
         lb_machine.setText("QT-Compact");
  
         
@@ -1055,7 +1069,8 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutMouseExited
 
     private void tub2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub2ActionPerformed
-        Graficar(90.6, 53.4, 32.5, 24.6, 16.6, 10.4);
+         id_maq = 2;
+         Graficar();
         lb_machine.setText("VF-2");
     }//GEN-LAST:event_tub2ActionPerformed
 
@@ -1068,7 +1083,9 @@ public class OEEGraphics extends javax.swing.JFrame {
     }//GEN-LAST:event_tub1PropertyChange
 
     private void tub3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub3ActionPerformed
-       lb_machine.setText("DP4011");
+       id_maq = 3;
+        Graficar();
+        lb_machine.setText("DP4011");
     }//GEN-LAST:event_tub3ActionPerformed
 
     private void tub4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub4ActionPerformed
@@ -1172,7 +1189,8 @@ public class OEEGraphics extends javax.swing.JFrame {
         bar.start();
     }
 
-    public void Graficar(double AvaPla, double AvaReal, double PerPla, double PerReal,double QuaPla, double QuaReal ) {
+    public void Graficar() {
+        List<OEEGraphic> oeeGraphics = dao.findToDay(id_maq, getDate());
         LimpiarLbl();
         //Inicializar valores de graficos
         ceroAva.setText("0");
@@ -1183,10 +1201,6 @@ public class OEEGraphics extends javax.swing.JFrame {
         cienPer.setText("100");
         cienQua.setText("100");
         cienOee.setText("100");
-        lbl_targetAva.setText("Target: 90%");
-        lbl_targetPer.setText("Target: 90%");
-        lbl_targetQua.setText("Target: 90%");
-        lbl_targetOee.setText("Target: 90%");
         
         planned.setText("Planned");
         executed.setText("Executed");
@@ -1195,26 +1209,62 @@ public class OEEGraphics extends javax.swing.JFrame {
         obtained.setText("Obtained");
         received.setText("Received");
         rejected.setText("Reject");
-       double PerAvaI= AvaReal/AvaPla*100;
+        
+        lbl_targetAva.setText("Target: 90%");
+        lbl_targetPer.setText("Target: 90%");
+        lbl_targetQua.setText("Target: 90%");
+        lbl_targetOee.setText("Target: 90%");
+        float time_estimate=0;
+        float time_work=0;
+        int perfor_maq=0 ;
+        int quantity=0;
+        int error=0;
+        for (OEEGraphic oee : oeeGraphics) {
+            time_estimate = oee.getPlanned_time();
+            time_work = oee.getTimeWork();
+            perfor_maq = oee.getPerfr_maq();
+            quantity = oee.getQuantity();
+            error = oee.getError();
+        }
+        float perfor_real = (quantity/time_work);
+        
+        if (time_work == 0) {
+        System.out.println("Error: time_work es cero.");
+        return;
+         }
+        
+        if (perfor_maq == 0) {
+        System.out.println("Error: perfor_maq es cero.");
+        return;
+         }
+        
+        if (quantity == 0) {
+        System.out.println("Error: quantity es cero.");
+        return;
+    }
+        
+       double PerAvaI= time_work/time_estimate*100;
         BigDecimal bd = new BigDecimal(Double.toString(PerAvaI));
         bd = bd.setScale(1, RoundingMode.HALF_UP);
         double PerAva = bd.doubleValue();
         System.out.println(PerAva+"");
         
-        double PerPerI= PerReal/PerPla*100;
+        double PerPerI= quantity/(time_work*perfor_maq)*100;
         BigDecimal bd2 = new BigDecimal(Double.toString(PerPerI));
         bd2 = bd2.setScale(1, RoundingMode.HALF_UP);
         double PerPer = bd2.doubleValue();
         
-        double PerQuaI = QuaReal/QuaPla*100;  
+        double PerQuaI = (1 - ((double) error / (double) quantity)) * 100;  
         BigDecimal bd3 = new BigDecimal(Double.toString(PerQuaI));
         bd3 = bd3.setScale(1, RoundingMode.HALF_UP);
         double PerQua = bd3.doubleValue();
         
-        double PerOEEI = (PerAva + PerPer + PerQua) / 3;
+        double PerOEEI = (PerAvaI/100) * (PerPerI/100) * PerQuaI ;
         BigDecimal bd6 = new BigDecimal(Double.toString(PerOEEI));
         bd6 = bd6.setScale(1, RoundingMode.HALF_UP);
         double PerOEE = bd6.doubleValue();
+        
+        
         
 //TO AVAILABILITY
         Draw_G chartAva = new Draw_G(PerAva, GAva);
@@ -1222,10 +1272,10 @@ public class OEEGraphics extends javax.swing.JFrame {
         lbl_PerAva.setText(PerAva + "%");
         Arrow(UpDownAva, PerAva);
         //Bars
-        LoadBars3Col(BarAva, AvaPla, AvaReal);
-         lb_PlanAva.setText(AvaPla+"");
-         lb_RealAva.setText(AvaReal+"");
-        double inter= AvaPla-AvaReal;
+        LoadBars3Col(BarAva, time_estimate, time_work);
+         lb_PlanAva.setText(time_estimate+"");
+         lb_RealAva.setText(time_work+"");
+        double inter= time_estimate-time_work;
         System.out.println(inter+"");
         
         BigDecimal bd5 = new BigDecimal(Double.toString(inter));
@@ -1239,18 +1289,18 @@ public class OEEGraphics extends javax.swing.JFrame {
         lbl_PerPer.setText(PerPer + "%");
         Arrow(UpDownPer, PerPer);
         //Bars
-        LoadBars2Col(BarPer, PerPla, PerReal);
-        lb_PlanPer.setText(PerPla+"");
-        lb_RealPer.setText(PerReal+"");
+        LoadBars2Col(BarPer, perfor_maq, perfor_real);
+        lb_PlanPer.setText(perfor_maq+"");
+        lb_RealPer.setText(perfor_real+"");
 //TO QUALITY 
         Draw_G chartQua = new Draw_G(PerQua, GQua);
         chartQua.SemiCircle(20, "253,153,1,255", "251,227,179", 200);
         lbl_PerQua.setText(PerQua + "%");
         Arrow(UpDownQua, PerQua);
         //Bars
-        LoadBars2Col(BarQua, QuaPla, QuaReal);
-        lb_PlanQua.setText(QuaPla+"");
-        lb_RealQua.setText(QuaReal+"");
+        LoadBars2Col(BarQua, quantity, error);
+        lb_PlanQua.setText(quantity+"");
+        lb_RealQua.setText(error+"");
 //TO OEE
         Draw_G chartOEE = new Draw_G(PerOEE, GraphOEE);
         chartOEE.SemiCircle(40, "80,92,228", "160,196,212", 370);
