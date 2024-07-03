@@ -214,6 +214,11 @@ public class OEEGraphics extends javax.swing.JFrame {
                 tub4MouseExited(evt);
             }
         });
+        tub4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(tub4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 304, 300, 34));
 
         tub5.setBorder(null);
@@ -223,6 +228,11 @@ public class OEEGraphics extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 tub5MouseExited(evt);
+            }
+        });
+        tub5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub5ActionPerformed(evt);
             }
         });
         getContentPane().add(tub5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 338, 300, 34));
@@ -236,6 +246,11 @@ public class OEEGraphics extends javax.swing.JFrame {
                 tub6MouseExited(evt);
             }
         });
+        tub6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tub6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(tub6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 372, 300, 34));
 
         sliter1.setBorder(null);
@@ -245,6 +260,11 @@ public class OEEGraphics extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 sliter1MouseExited(evt);
+            }
+        });
+        sliter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sliter1ActionPerformed(evt);
             }
         });
         getContentPane().add(sliter1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 493, 300, 34));
@@ -258,6 +278,11 @@ public class OEEGraphics extends javax.swing.JFrame {
                 sliter2MouseExited(evt);
             }
         });
+        sliter2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sliter2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(sliter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 527, 300, 34));
 
         sliter3.setBorder(null);
@@ -269,6 +294,11 @@ public class OEEGraphics extends javax.swing.JFrame {
                 sliter3MouseExited(evt);
             }
         });
+        sliter3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sliter3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(sliter3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 561, 300, 34));
 
         horno1.setBorder(null);
@@ -278,6 +308,11 @@ public class OEEGraphics extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 horno1MouseExited(evt);
+            }
+        });
+        horno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horno1ActionPerformed(evt);
             }
         });
         getContentPane().add(horno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 688, 300, 34));
@@ -1035,6 +1070,34 @@ public class OEEGraphics extends javax.swing.JFrame {
     private void tub3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub3ActionPerformed
        lb_machine.setText("DP4011");
     }//GEN-LAST:event_tub3ActionPerformed
+
+    private void tub4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tub4ActionPerformed
+
+    private void tub5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tub5ActionPerformed
+
+    private void tub6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tub6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tub6ActionPerformed
+
+    private void sliter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sliter1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sliter1ActionPerformed
+
+    private void sliter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sliter2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sliter2ActionPerformed
+
+    private void sliter3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sliter3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sliter3ActionPerformed
+
+    private void horno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horno1ActionPerformed
 
 
     
