@@ -31,13 +31,7 @@ public class OEEGraphics extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
 //aaaaaaaaaaaa
     }
-    
-    public String getDate(){
-        Date fechaActual = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-        String nueva_fecha = formatoFecha.format(fechaActual);
-        return nueva_fecha;
-    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1190,7 +1184,7 @@ public class OEEGraphics extends javax.swing.JFrame {
     }
 
     public void Graficar() {
-        List<OEEGraphic> oeeGraphics = dao.findToDay(id_maq, getDate());
+        List<OEEGraphic> oeeGraphics = dao.findToDay(id_maq);
         LimpiarLbl();
         //Inicializar valores de graficos
         ceroAva.setText("0");

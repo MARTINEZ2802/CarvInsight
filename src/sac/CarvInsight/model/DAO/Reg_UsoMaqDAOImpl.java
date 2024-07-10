@@ -38,7 +38,7 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
     }
 
     @Override
-    public List<OEEGraphic> findToDay(int id_maq, String Date) {
+    public List<OEEGraphic> findToDay(int id_maq) {
         List<OEEGraphic> LisOEE = new ArrayList<>();
     String query = "SELECT " +
                "ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, " +
@@ -50,13 +50,13 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
                "INNER JOIN " +
                "machines m ON am.id_maq = m.id_maq " +
                "WHERE " +
-               "ru.date_use = ? AND m.id_maq = ?;";
+               "m.id_maq = ? LIMIT 1;";
     
         try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, Date);
-            stmt.setInt(2, id_maq);
+            
+            stmt.setInt(1, id_maq);
             ResultSet rs = stmt.executeQuery();
             System.out.println("Conexion");
             if (rs.next()) {  
@@ -81,18 +81,17 @@ public class Reg_UsoMaqDAOImpl implements Reg_UsoMaqDAO{
     public List<OEEGraphic> findToWeek(int id_maq, String Date) {
     String DateLimit = "";
     List<OEEGraphic> LisOEE = new ArrayList<>();
-    String query = """
-                   SELECT 
-                       ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, 
-                       m.perfor_maq, am.time_estimate
-                   FROM 
-                       reg_using ru
-                   INNER JOIN 
-                       asig_machines am ON ru.id_asig = am.id_asig
-                   INNER JOIN 
-                       machines m ON am.id_maq = m.id_maq
-                   WHERE 
-                   \t ru.date_use BETWEEN =? AND =? AND m.id_maq=?;""";
+    String query ="SELECT " +
+                            "    ru.id_asig, ru.date_use, ru.time_work, ru.quantity, ru.error, " +
+                            "    m.perfor_maq, am.time_estimate " +
+                            "FROM " +
+                            "    reg_using ru" +
+                            "INNER JOIN " +
+                            "    asig_machines am ON ru.id_asig = am.id_asig" +
+                            "INNER JOIN " +
+                            "    machines m ON am.id_maq = m.id_maq " +
+                            "WHERE " +
+                            "    ru.date_use BETWEEN ? AND ? AND m.id_maq = ?;";
         try {
             Connection conn = Conexion.getConnection();
             PreparedStatement stmt = conn.prepareStatement(query);
